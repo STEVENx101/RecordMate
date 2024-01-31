@@ -1,0 +1,27 @@
+//simplified example in Python using the pyautogui library for screen capture
+import pyautogui
+import cv2
+
+# Screen resolution
+SCREEN_WIDTH, SCREEN_HEIGHT = pyautogui.size()
+
+# Video writer
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+video_writer = cv2.VideoWriter('recorded_screen.mp4', fourcc, 20.0, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+# Start recording
+while True:
+    # Capture screen
+    screenshot = pyautogui.screenshot()
+    frame = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
+    
+    # Write frame to video
+    video_writer.write(frame)
+
+    # Break loop on key press (e.g., 'q')
+    if cv2.waitKey(1) == ord('q'):
+        break
+
+# Release video writer and close window
+video_writer.release()
+cv2.destroyAllWindows()
