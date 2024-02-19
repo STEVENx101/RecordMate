@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    position:absolute;
+    top: 30%;
+    left: 10%;
+    color: navy;
+}
+#Username {
+    font-weight: bold;
+    position: absolute;
+    top: 30%; 
+    left: 60%; 
+}
+
+#Password {
+    font-weight: bold;
+    position: absolute;
+    top: 35%; 
+    left: 60.3%; 
+}
+
+#LoginButton {
+    position: absolute;
+    top: 40%; 
+    left: 78%; 
+}
+
+#SignUpButton {
+    position: absolute;
+    top: 48%;
+    left: 81%;
+    border: none;
+}
+
+
+
+
+#SignupText {
+    position: absolute;
+    top: 45%; 
+    left: 60%; 
+}

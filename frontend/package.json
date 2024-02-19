@@ -1,0 +1,15 @@
+{
+  "name": "RecordMate",
+  "version": "1.0.0",
+  "description": "This is the frontend of recordmate",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Dilusha",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.2.3"
+  }
+}
