@@ -5,6 +5,7 @@ html, body {
 }
 
 h1{
+    font-size: 22;
     position:absolute;
     top: 30%;
     left: 10%;
