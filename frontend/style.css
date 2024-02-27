@@ -30,18 +30,17 @@ h1{
     left: 78%; 
 }
 
-#SignUpButton {
+#SignUpLink {
     position: absolute;
     top: 48%;
-    left: 81%;
+    left: 82%;
     border: none;
 }
-
-
-
 
 #SignupText {
     position: absolute;
     top: 45%; 
     left: 60%; 
 }
+
+
