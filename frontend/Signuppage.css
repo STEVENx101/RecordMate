@@ -10,3 +10,22 @@ h1{
     left: 8%;
     color: navy;
 }
+
+#goBackBtn{
+    color: #000;
+}
+
+#selectButton1{
+    position: absolute;
+    top: 40%;
+    left: 37%;
+    color: navy;
+}
+
+#selectButton2{
+    position: absolute;
+    top: 46%;
+    left: 36%;
+    color: navy;
+
+}
