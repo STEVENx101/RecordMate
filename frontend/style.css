@@ -24,11 +24,17 @@ h1{
     left: 60.3%; 
 }
 
-#LoginButton {
+.LoginButton {
     position: absolute;
     top: 40%; 
     left: 78%; 
-    background-color: aqua;
+    padding: 5px 10px;
+  font-size: 12px;
+  border: 1px solid #333;
+  background-color: navy;
+  color: whitesmoke;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 #SignUpLink {

@@ -20,13 +20,14 @@ h1{
     position: absolute;
     top: 40%;
     left: 37%;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: 1px solid #333;
-  background-color: whitesmoke;
-  color: navy;
-  cursor: pointer;
-  border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #333;
+    background-color: whitesmoke;
+    color: navy;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 .selectButton2{
@@ -40,5 +41,5 @@ h1{
     color:navy;
     cursor: pointer;
     border-radius: 5px;
-
+    font-weight: bold;
 }
