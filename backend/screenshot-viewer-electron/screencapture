@@ -3,6 +3,7 @@ import keyboard
 from pynput import mouse
 import pymongo
 from bson.binary import Binary
+from io import BytesIO
 
 # Connect to MongoDB
 client = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -10,11 +11,12 @@ db = client["screenshot_database"]
 collection = db["screenshots"]
 
 # Function to save screenshot to MongoDB
-def save_screenshot_to_mongodb(x, y, image_data):
+def save_screenshot_to_mongodb(x, y, image_data, image_format):
     screenshot_data = {
         "x": x,
         "y": y,
-        "image_data": Binary(image_data)
+        "image_data": Binary(image_data),
+        "image_format": image_format
     }
     collection.insert_one(screenshot_data)
 
@@ -34,17 +36,17 @@ def on_mouse_event(x, y, button, pressed):
         # Take a screenshot when a mouse button is pressed
         screenshot = pyautogui.screenshot()
         # Convert the screenshot to bytes
-        image_data = screenshot.tobytes()
+        image_buffer = BytesIO()
+        screenshot.save(image_buffer, format='PNG')  # Save as PNG format (you can change to JPEG if needed)
+        image_data = image_buffer.getvalue()
         # Save the screenshot to MongoDB
-        save_screenshot_to_mongodb(x, y, image_data)
+        save_screenshot_to_mongodb(x, y, image_data, 'PNG')  # Pass the image format as 'PNG'
         print(f"Screenshot saved to MongoDB: ({x}, {y})")
 
 # Register keyboard event listener
 keyboard.on_release(on_keyboard_event)
 
 # Register mouse event listener
-# Note: This is a placeholder and may not work as expected
-# You may need to use a dedicated library or tool to capture mouse events
 mouse_listener = mouse.Listener(on_click=on_mouse_event)
 mouse_listener.start()
 
