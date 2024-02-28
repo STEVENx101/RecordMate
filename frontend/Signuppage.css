@@ -11,8 +11,9 @@ h1{
     color: navy;
 }
 
-#goBackBtn{
-    color: #000;
+.goBackBtn{
+    color:whitesmoke;
+    background-color: navy; 
 }
 
 
