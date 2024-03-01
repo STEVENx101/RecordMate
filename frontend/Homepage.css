@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    position: absolute;
+    top: 2%;
+    left: 80%;
+}
+h2{
+    position: absolute;
+    top: 3%;
+    left: 40%;
+
+}
+
+.search-container{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+   
+}
+
+.search-container input{
+    width: 500px;
+    
+}
+
+.RecordBtn{
+    position: absolute;
+    top: 20%;
+    left: 81%;
+}

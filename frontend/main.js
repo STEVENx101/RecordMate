@@ -1,4 +1,4 @@
-const { BrowserWindow, app, ipcMain , Menu} = require('electron');
+const { BrowserWindow, app, ipcMain , Menu, dialog} = require('electron');
 const path = require('path');
 
 let loginWin;
@@ -44,5 +44,30 @@ ipcMain.on('open-new-window', () => {
     homePage.loadFile('Homepage.html');
 
     Menu.setApplicationMenu(null);
+
+    showLogoutConfirmation(homePage);
 });    
 
+
+const showLogoutConfirmation = (homePage) => {
+    const options = {
+      type: 'question',
+      buttons: ['Yes', 'No'],
+      defaultId: 1,
+      title: 'Logout Confirmation',
+      message: 'Are you sure you want to log out?',
+    };
+  
+    dialog.showMessageBox(homePage, options, (response) => {
+      if (response === 0) {
+        // User clicked "Yes", perform logout action here
+        console.log('User clicked "Yes"');
+        // Add your logout logic here
+      } else {
+        // User clicked "No", do nothing or handle accordingly
+        console.log('User clicked "No"');
+      }
+    });
+  };
+  
+  module.exports.showLogoutConfirmation = showLogoutConfirmation;
