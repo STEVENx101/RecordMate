@@ -1,9 +1,10 @@
-const { BrowserWindow, app, ipcMain , Menu, dialog} = require('electron');
+const { BrowserWindow, app, ipcMain, Menu, dialog } = require('electron');
 const path = require('path');
 
 let loginWin;
+let homePage;
 
-function createWindow () {
+function createWindow() {
     loginWin = new BrowserWindow({
         width: 800,
         height: 600,
@@ -16,14 +17,12 @@ function createWindow () {
 
     loginWin.setMenu(null);
     loginWin.loadFile("Loginpage.html");
-};
+}
 
-app.whenReady().then(() => {
-    createWindow();
+app.on('ready', createWindow);
 
-    app.on('activate', function (){
-        if (BrowserWindow.getAllWindows().length === 0) createWindow;
-    });
+app.on('activate', function () {
+    if (mainWindow === null) createWindow();
 });
 
 app.on('window-all-closed', () => {
@@ -31,11 +30,12 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('open-new-window', () => {
-    const homePage = new BrowserWindow({
+    homePage = new BrowserWindow({
         width: 1920,
         height: 1080,
         webPreferences: {
             nodeIntegration: true,
+            contextIsolation: false,
         },
     });
 
@@ -43,31 +43,50 @@ ipcMain.on('open-new-window', () => {
 
     homePage.loadFile('Homepage.html');
 
-    Menu.setApplicationMenu(null);
+    homePage.setMenu(null);
+});
 
-    showLogoutConfirmation(homePage);
-});    
+ipcMain.on('open-record-window', () => {
+  recordWindow = new BrowserWindow({
+      width: 300,
+      height: 200,
+      webPreferences: {
+          nodeIntegration: true,
+          contextIsolation: false,
+      },
+  });
+
+  recordWindow.loadFile('Recordpage.html');
+  recordWindow.setMenu(null);
+});
 
 
-const showLogoutConfirmation = (homePage) => {
+ipcMain.on('show-logout-confirmation', () => {
+    // Open the logout confirmation dialog
+    showLogoutConfirmation(loginWin);
+});
+
+ipcMain.on('open-logout-window', () => {
+    // Call the optionbar function to open the dialog
+    optionbar(homePage);
+});
+
+// Define the optionbar function
+const optionbar = (homePage) => {
     const options = {
-      type: 'question',
-      buttons: ['Yes', 'No'],
-      defaultId: 1,
-      title: 'Logout Confirmation',
-      message: 'Are you sure you want to log out?',
+        type: 'question',
+        buttons: ['Yes', 'No'],
+        defaultId: 1,
+        title: 'Logout Confirmation',
+        message: 'Are you sure you want to log out?',
     };
-  
-    dialog.showMessageBox(homePage, options, (response) => {
-      if (response === 0) {
-        // User clicked "Yes", perform logout action here
-        console.log('User clicked "Yes"');
-        // Add your logout logic here
-      } else {
-        // User clicked "No", do nothing or handle accordingly
-        console.log('User clicked "No"');
-      }
+
+    dialog.showMessageBox(homePage, options).then((response) => {
+        if (response.response === 0) {
+            homePage.close();
+            createWindow();
+        } else {
+            console.log('User clicked No');
+        }
     });
-  };
-  
-  module.exports.showLogoutConfirmation = showLogoutConfirmation;
+};
