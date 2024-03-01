@@ -61,6 +61,8 @@ ipcMain.on('open-record-window', () => {
 });
 
 
+
+
 ipcMain.on('show-logout-confirmation', () => {
     // Open the logout confirmation dialog
     showLogoutConfirmation(loginWin);

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     const loginbtn = document.getElementById('loginBtn');
     const logoutbtn = document.getElementById('logoutBtn');
     const recordWindowbtn = document.getElementById('recordBtn');
-
+    
     if(loginbtn){
         loginbtn.addEventListener('click', () => {
             ipcRenderer.send('open-new-window');
@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
     
 });
+
+
 
 
 

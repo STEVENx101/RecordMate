@@ -17,7 +17,7 @@ h1{
 }
 
 
-.selectButton1{
+.selectLink1{
     position: absolute;
     top: 40%;
     left: 37%;
@@ -31,7 +31,7 @@ h1{
     font-weight: bold;
 }
 
-.selectButton2{
+.selectLink2{
     position: absolute;
     top: 48.5%;
     left: 35.5%;
