@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#Email {
+    font-weight: bold;
+    position: absolute;
+    top: 30%; 
+    left: 44.5%; 
+}
+
+#Username {
+    font-weight: bold;
+    position: absolute;
+    top: 35%; 
+    left: 40%; 
+}
+
+
+
+#Password {
+    font-weight: bold;
+    position: absolute;
+    top: 40%; 
+    left: 40.3%; 
+}
+
+.createAccountButton {
+    position: absolute;
+    top: 40%; 
+    left: 78%; 
+    padding: 5px 10px;
+  font-size: 12px;
+  border: 1px solid #333;
+  background-color: navy;
+  color: whitesmoke;
+  cursor: pointer;
+  border-radius: 3px;
+}
