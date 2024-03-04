@@ -2,13 +2,24 @@
 
 html, body {
     font-family: 'Roboto', sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100%; 
+}
+
+body{
+    background-image: url('background.jpg');
+    background-size: cover; /* Adjust the size property to cover or contain as needed */
+    background-repeat: no-repeat;
+    background-position: center center;
+    backdrop-filter: blur(0px);
 }
 
 h1{
     position:absolute;
     top: 10%;
     left: 8%;
-    color: navy;
+    color: whitesmoke;
 }
 
 .goBackBtn{
@@ -19,28 +30,62 @@ h1{
 
 .selectLink1{
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 37%;
     padding: 10px 20px;
     font-size: 16px;
     border: 1px solid #333;
-    background-color: whitesmoke;
-    color: navy;
+    background-color: black;
+    color: whitesmoke;
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
+    display: block;
+    text-decoration: none;
 }
 
 .selectLink2{
     position: absolute;
-    top: 48.5%;
+    top: 43.5%;
     left: 35.5%;
     padding: 10px 20px;
     font-size: 16px;
     border: 1px solid #333;
-    background-color:whitesmoke;
-    color:navy;
+    background-color:black;
+    color: whitesmoke;
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
+    text-decoration: none;
 }
+
+
+.selectLink1:hover + #individualParagraph {
+    display: block;
+}
+
+.selectLink2:hover + #organizationsParagraph {
+    display: block;
+}
+
+#individualParagraph{
+    position: absolute;
+    top: 55%;
+    display: none;
+    text-align: center;
+}
+
+#organizationsParagraph{
+    position: absolute;
+    top: 55%;
+    display: none;
+    text-align: center;
+}
+
+p{
+    color: whitesmoke;
+}
+
+
+
+
