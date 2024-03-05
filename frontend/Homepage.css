@@ -48,7 +48,50 @@ h2{
     color:whitesmoke;
 }
 
-#logoutBtn{
-    color:whitesmoke;
-    background-color: navy; 
+#logoutBtn {
+  display: block;
+  width: 130px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #333;
+  border-radius: 20px; /* Adjust the border-radius to control the curvature */
+  transition: all .35s;
 }
+
+#logoutBtn:hover {
+  width: 120px;
+  border: 2px solid #2ecc71;
+  background: transparent;
+  color: #2ecc71;
+}
+
+#logoutBtn .icon {
+  width: 30px;
+  height: 30px;
+  border: 2px solid transparent;
+  position: absolute;
+  transform: rotate(-135deg);
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .35s;
+}
+
+#logoutBtn .icon svg {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: calc(50% - 9px);
+  left: calc(50% - 9px);
+  transform: rotate(45deg);
+  fill: #2ecc71;
+  transition: all .35s;
+}
+

@@ -9,6 +9,7 @@ function createWindow() {
         width: 800,
         height: 600,
         maximizable: false,
+        transparent: true,
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, 'preload.js'),
@@ -33,6 +34,7 @@ ipcMain.on('open-new-window', () => {
     homePage = new BrowserWindow({
         width: 1920,
         height: 1080,
+        transparent: true,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
@@ -44,6 +46,7 @@ ipcMain.on('open-new-window', () => {
     homePage.loadFile('Homepage.html');
 
     homePage.setMenu(null);
+
 });
 
 ipcMain.on('open-record-window', () => {
