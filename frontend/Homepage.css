@@ -18,7 +18,7 @@ body{
 h1{
     position: absolute;
     top: 2%;
-    left: 80%;
+    left: 2%;
     color:whitesmoke;
 }
 h2{
@@ -46,52 +46,49 @@ h2{
     top: 30%;
     left: 81%;
     color:whitesmoke;
+    width: 140px;
+    height: 50px;
+    line-height: 20px;
+    text-decoration: none;
+    background:transparent;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border: 2px solid #333;
+    border-radius: 20px; /* Adjust the border-radius to control the curvature */
+    transition: all .35s;
+}
+
+#recordBtn:hover {
+  width: 150px;
+  border: 2px solid #01f8ec;
+  background: transparent;
+  color: #01f8ec;
 }
 
 #logoutBtn {
-  display: block;
-  width: 130px;
+  top: 1%;
+  left: 94%;
+  position: absolute;
+  width: 110px;
   height: 40px;
   line-height: 40px;
-  font-weight: bold;
   text-decoration: none;
-  background: #333;
+  background:transparent;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 1px;
   border: 2px solid #333;
   border-radius: 20px; /* Adjust the border-radius to control the curvature */
   transition: all .35s;
 }
 
 #logoutBtn:hover {
-  width: 120px;
-  border: 2px solid #2ecc71;
+  width: 115px;
+  border: 2px solid #01f8ec;
   background: transparent;
-  color: #2ecc71;
+  color: #01f8ec;
 }
 
-#logoutBtn .icon {
-  width: 30px;
-  height: 30px;
-  border: 2px solid transparent;
-  position: absolute;
-  transform: rotate(-135deg);
-  right: 0;
-  top: 0;
-  z-index: -1;
-  transition: all .35s;
-}
 
-#logoutBtn .icon svg {
-  width: 18px;
-  height: 18px;
-  position: absolute;
-  top: calc(50% - 9px);
-  left: calc(50% - 9px);
-  transform: rotate(45deg);
-  fill: #2ecc71;
-  transition: all .35s;
-}
 
