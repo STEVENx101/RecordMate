@@ -39,7 +39,7 @@ h1{
 .LoginButton {
     position: absolute;
     top: 40%; 
-    left: 78%; 
+    left: 76%; 
     width: 90px;
     height: 30px;
     line-height: 20px;
@@ -53,7 +53,7 @@ h1{
 }
 
 .LoginButton:hover {
-    width: 100px;
+    width: 95px;
     border: 2px solid #01f8ec;
     background: transparent;
     color: #01f8ec;

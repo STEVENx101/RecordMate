@@ -20,6 +20,7 @@ body{
     position: absolute;
     top: 30%; 
     left: 44.5%; 
+    color: whitesmoke;
 }
 
 #Username {
@@ -27,6 +28,7 @@ body{
     position: absolute;
     top: 35%; 
     left: 40%; 
+    color: whitesmoke;
 }
 
 
@@ -36,20 +38,32 @@ body{
     position: absolute;
     top: 40%; 
     left: 40.3%; 
+    color: whitesmoke;
 }
 
 .createAccountButton {
     position: absolute;
-    top: 40%; 
-    left: 78%; 
-    padding: 5px 10px;
-  font-size: 12px;
-  border: 1px solid #333;
-  background-color: navy;
-  color: whitesmoke;
-  cursor: pointer;
-  border-radius: 3px;
+    top: 45%; 
+    left: 70%; 
+    width: 170px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    background:transparent;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border: 2px solid #333;
+    border-radius: 20px; /* Adjust the border-radius to control the curvature */
+    transition: all .35s;
 }
+
+.createAccountButton:hover {
+    width: 180px;
+    border: 2px solid #01f8ec;
+    background: transparent;
+    color: #01f8ec;
+  }
 
 
 .goBackBtn{

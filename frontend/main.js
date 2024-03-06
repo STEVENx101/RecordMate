@@ -1,5 +1,6 @@
 const { BrowserWindow, app, ipcMain, Menu, dialog } = require('electron');
 const path = require('path');
+const fs = require('fs');
 
 let loginWin;
 let homePage;

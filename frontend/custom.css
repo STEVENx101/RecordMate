@@ -1,0 +1,17 @@
+/* Add this to your existing CSS or create a new stylesheet */
+.custom-dialog button {
+    background-color: #ff0000; /* Red background color for buttons */
+    color: #ffffff; /* White text color for buttons */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.custom-dialog button:hover {
+    background-color: #990000; /* Darker red color on hover */
+}
+
+body{
+    color: #000;
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100%; 
+}
+
+body{
+    background-image: url('background.jpg');
+    background-size: cover; /* Adjust the size property to cover or contain as needed */
+    background-repeat: no-repeat;
+    background-position: center center;
+    backdrop-filter: blur(0px);
+}
+
+#startBtn{
+  position: absolute;
+  width: 90px;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: none;
+  background:transparent;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  border: 2px solid #333;
+  border-radius: 20px; /* Adjust the border-radius to control the curvature */
+  transition: all .35s;
+}
+
+#startBtn:hover{
+    width: 95px;
+    border: 2px solid #01f8ec;
+    background: transparent;
+    color: #01f8ec;
+}
+
+#stopBtn{
+    top: 40%;
+    position: absolute;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    background:transparent;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border: 2px solid #333;
+    border-radius: 20px; /* Adjust the border-radius to control the curvature */
+    transition: all .35s;
+  }
+  
+  #stopBtn:hover{
+      width: 95px;
+      border: 2px solid #fc0606;
+      background: transparent;
+      color: #fc0606;
+  }
+

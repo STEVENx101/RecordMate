@@ -40,7 +40,7 @@ h1{
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
     font-weight: bold;
     display: block;
     text-decoration: none;
@@ -56,7 +56,7 @@ h1{
     background-color:black;
     color: whitesmoke;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
     font-weight: bold;
     text-decoration: none;
 }
