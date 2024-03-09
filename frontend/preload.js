@@ -1,17 +1,11 @@
 const { ipcRenderer, dialog} = require('electron');
 
 document.addEventListener('DOMContentLoaded', () =>{
-    const loginbtn = document.getElementById('loginBtn');
+    
     const logoutbtn = document.getElementById('logoutBtn');
     const recordWindowbtn = document.getElementById('recordBtn');
     const closeRecordBtn = document.getElementById('closeRecordBtn');
     
-    if(loginbtn){
-        loginbtn.addEventListener('click', () => {
-            ipcRenderer.send('open-new-window');
-        });
-
-    }
 
     if(logoutbtn){
         logoutbtn.addEventListener('click', () => {
