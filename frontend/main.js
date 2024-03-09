@@ -96,3 +96,9 @@ const optionbar = (homePage) => {
         }
     });
 };
+
+ipcMain.on('close-record-window', ()=>{
+    if(recordWindow){
+        recordWindow.close();
+    }
+})
