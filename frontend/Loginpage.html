@@ -1,48 +1,38 @@
 <!DOCTYPE html>
-<html lang="'en">
-    <head >
-        <meta charset = "UTF-8">
-        <meta http-equiv="X-UA-Compatible" content = "IE=edge">
-        <meta name="viewport" content="width=device-width>, initial-scale=1.0">
-        <title>RecordMate</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecordMate</title>
+    <link rel="stylesheet" href="Loginpage.css">
+    
+    <script src="Login.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Recordmate</h1>
+    </div>
 
-        <link rel="stylesheet" href="Loginpage.css">
-        <script src="preload.js"></script>
-    </head>
+    <div>
+        <form id="loginForm">
+            <div id="Username">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div> 
+            <div id="Password">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>    
+            <button class="LoginButton" type="button" id="loginBtn">Login</button>
+        </form>
+    </div>
 
-    <body>
-        <div>
-            <h1>Recordmate</h1>
-        </div>
+    <div id="SignupText">
+        <p>Don't have an account?</p>
+    </div>  
+    <a href="Signuppage.html" id="SignUpLink">Signup</a>
 
-        <div>
-            <form id="loginform">
-
-                <div id="Username">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div> 
-                
-                <div id="Password">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>    
-
-                
-                <button class="LoginButton" type="button" id="loginBtn">Login</button>
-                
-
-                
-            </form>
-        </div>
-
-        <div id="SignupText">
-            <p>Don't have an account?</p>
-        </div>
-            
-          
-        <a href="Signuppage.html" id="SignUpLink">Signup</a>
-        
-      
-    </body>
+    
+</body>
 </html>
