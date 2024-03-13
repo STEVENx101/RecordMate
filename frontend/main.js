@@ -2,8 +2,10 @@ const { BrowserWindow, app, ipcMain, Menu, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
+
 let loginWin;
 let homePage;
+let recordWindow;
 
 function createWindow() {
     loginWin = new BrowserWindow({
@@ -19,7 +21,9 @@ function createWindow() {
     
     loginWin.setMenu(null);
     loginWin.loadFile("Loginpage.html");
+
 }
+
 
 app.on('ready', createWindow);
 
@@ -59,6 +63,7 @@ ipcMain.on('open-record-window', () => {
   recordWindow = new BrowserWindow({
       width: 300,
       height: 200,
+      frame:false,
       webPreferences: {
           nodeIntegration: true,
           contextIsolation: false,
@@ -106,4 +111,7 @@ ipcMain.on('close-record-window', ()=>{
     if(recordWindow){
         recordWindow.close();
     }
-})
+});
+
+
+
