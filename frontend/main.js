@@ -16,7 +16,7 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js'),
         },
     });
-
+    
     loginWin.setMenu(null);
     loginWin.loadFile("Loginpage.html");
 }
@@ -24,7 +24,7 @@ function createWindow() {
 app.on('ready', createWindow);
 
 app.on('activate', function () {
-    if (mainWindow === null) createWindow();
+    if (loginWin === null) createWindow();
 });
 
 app.on('window-all-closed', () => {
@@ -43,6 +43,11 @@ ipcMain.on('open-new-window', () => {
     });
 
     loginWin.close();
+
+    homePage.once('ready-to-show', () => {
+        homePage.show();
+        homePage.setSize(1920, 1080);
+    });
 
     homePage.loadFile('Homepage.html');
 
