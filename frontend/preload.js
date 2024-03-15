@@ -3,7 +3,7 @@ const { ipcRenderer, dialog} = require('electron');
 document.addEventListener('DOMContentLoaded', () =>{
     
     const logoutbtn = document.getElementById('logoutBtn');
-    const recordWindowbtn = document.getElementById('recordBtn');
+    const startBtn = document.getElementById('startBtn');
     const closeRecordBtn = document.getElementById('closeRecordBtn');
     
 
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () =>{
         });
     }
 
-    if(recordWindowbtn){
-        recordWindowbtn.addEventListener('click', () => {
+    if(startBtn){
+        startBtn.addEventListener('click', () => {
             ipcRenderer.send('open-record-window');
         });
     }
@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () =>{
             ipcRenderer.send('close-record-window');
         });
     }
+
+    
     
 });
 

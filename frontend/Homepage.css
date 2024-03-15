@@ -63,30 +63,7 @@ h2{
     color: #01f8ec;
 }
 
-#recordBtn{
-    position: absolute;
-    top: 30%;
-    left: 81%;
-    color:whitesmoke;
-    width: 135px;
-    height: 50px;
-    line-height: 20px;
-    text-decoration: none;
-    background:transparent;
-    text-align: center;
-    color: #fff;
-    text-transform: uppercase;
-    border: 2px solid #333;
-    border-radius: 20px; /* Adjust the border-radius to control the curvature */
-    transition: all .35s;
-}
 
-#recordBtn:hover {
-  width: 150px;
-  border: 2px solid #01f8ec;
-  background: transparent;
-  color: #01f8ec;
-}
 
 #logoutBtn {
   top: 1%;
@@ -107,10 +84,62 @@ h2{
 
 #logoutBtn:hover {
   width: 115px;
-  border: 2px solid #01f8ec;
+  border: 2px solid #fc0606;
   background: transparent;
-  color: #01f8ec;
+  color: #fc0606;
 }
 
 
+#startBtn{
+    position: absolute;
+    top: 10%;
+    left: 88%;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    background:transparent;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border: 2px solid #333;
+    border-radius: 20px; /* Adjust the border-radius to control the curvature */
+    transition: all .35s;
+  }
+  
+  #startBtn:hover{
+      width: 95px;
+      border: 2px solid #01f8ec;
+      background: transparent;
+      color: #01f8ec;
+  }
+  
+  #stopBtn{
+      position: absolute;
+      top: 15%;
+      left: 88%;
+      width: 90px;
+      height: 40px;
+      line-height: 40px;
+      text-decoration: none;
+      background:transparent;
+      text-align: center;
+      color: #fff;
+      text-transform: uppercase;
+      border: 2px solid #333;
+      border-radius: 20px; /* Adjust the border-radius to control the curvature */
+      transition: all .35s;
+    }
+    
+    #stopBtn:hover{
+        width: 95px;
+        border: 2px solid #fc0606;
+        background: transparent;
+        color: #fc0606;
+    }
 
+    #RecordTitle{
+        position: absolute;
+        top: 5%;
+        left: 85%;
+    }

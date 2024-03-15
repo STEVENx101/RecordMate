@@ -15,30 +15,7 @@ body{
     backdrop-filter: blur(0px);
 }
 
-#startBtn{
-  position: absolute;
-  width: 90px;
-  height: 40px;
-  line-height: 40px;
-  text-decoration: none;
-  background:transparent;
-  text-align: center;
-  color: #fff;
-  text-transform: uppercase;
-  border: 2px solid #333;
-  border-radius: 20px; /* Adjust the border-radius to control the curvature */
-  transition: all .35s;
-}
-
-#startBtn:hover{
-    width: 95px;
-    border: 2px solid #01f8ec;
-    background: transparent;
-    color: #01f8ec;
-}
-
-#stopBtn{
-    top: 40%;
+#CreateBtn{
     position: absolute;
     width: 90px;
     height: 40px;
@@ -51,15 +28,14 @@ body{
     border: 2px solid #333;
     border-radius: 20px; /* Adjust the border-radius to control the curvature */
     transition: all .35s;
-  }
-  
-  #stopBtn:hover{
-      width: 95px;
-      border: 2px solid #fc0606;
-      background: transparent;
-      color: #fc0606;
-  }
+}
 
+#CreateBtn:hover{
+    width: 95px;
+    border: 2px solid #01f8ec;
+    background: transparent;
+    color: #01f8ec;
+}
 
 .close-button {
     display: block;
