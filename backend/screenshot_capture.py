@@ -19,7 +19,7 @@ db_name = f"user_{current_user}"
 db = client[db_name]
 
 # Create a collection for screenshots in the user's database
-collection_name = 'screenshots'
+collection_name = 's2'
 collection = db[collection_name]
 
 def on_click(x, y, button, pressed):
