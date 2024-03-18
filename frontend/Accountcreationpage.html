@@ -43,47 +43,61 @@
         
     </form>
 
-<script>
-    // Function to handle form submission
-    function handleFormSubmission() {
-        // Get the form data
-        const email = document.getElementById('email').value;
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        // Create an object with the form data
-        const formData = {
-            email: email,
-            username: username,
-            password: password
-        };
-
-        // Send a POST request to your backend server
-        fetch('http://localhost:3000/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            if (response.ok) {
-                // If registration is successful, display a success message or redirect the user to another page
-                window.location.href = 'Loginpage.html';
-                
-            } else {
-                // If registration fails, display an error message to the user
-                console.error('Account creation failed');
+    <script>
+        // Function to validate email format
+        function isValidEmail(email) {
+            // Regular expression for validating email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    
+        // Function to handle form submission
+        function handleFormSubmission() {
+            // Get the form data
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            // Check if email is in a valid format
+            if (!isValidEmail(email)) {
+                console.error('Invalid email format');
+                return; // Stop form submission
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-
-    // Add an event listener to the Create Account button
-    document.getElementById('createAccountBtn').addEventListener('click', handleFormSubmission);
-</script>
+    
+            // Create an object with the form data
+            const formData = {
+                email: email,
+                username: username,
+                password: password
+            };
+    
+            // Send a POST request to your backend server
+            fetch('http://localhost:3000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // If registration is successful, display a success message or redirect the user to another page
+                    window.location.href = 'Loginpage.html';
+                    
+                } else {
+                    // If registration fails, display an error message to the user
+                    console.error('Account creation failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    
+        // Add an event listener to the Create Account button
+        document.getElementById('createAccountBtn').addEventListener('click', handleFormSubmission);
+    </script>
+    
 
 
 
