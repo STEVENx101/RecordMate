@@ -13,6 +13,7 @@
 <body>
 
     <h1>User profile</h1>
+    <div id="username"> </div>
     <h2>Search Records</h2>
 
     <h2 id="RecordTitle">Create a New Record</h2>
@@ -23,15 +24,17 @@
     </div>
 
     <button id="logoutBtn">✖ Logout</button>
-<<<<<<< Updated upstream
 
     <button id="startBtn">Start</button>
     <button id="stopBtn">Stop</button>
-=======
-    <!-- Container for displaying search results -->
-    <div id="searchResultsContainer"></div>
->>>>>>> Stashed changes
     
+    <script>
+        // Access the logged-in user's username using the preload script
+        window.electronAPI.getLoggedInUsername().then(username => {
+            // Update the DOM to display the logged-in user's username
+            document.getElementById('username').innerText = `Logged in as: ${username}`;
+        });
+    </script>
     
 </body>
 </html>

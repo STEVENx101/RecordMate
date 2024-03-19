@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     email: { type: String, required: true, unique: true }
 });
+
 // Create User model
 const User = mongoose.model('User', userSchema);
 
@@ -38,50 +39,42 @@ userSchema.pre('save', async function(next) {
     }
 });
 
-
-
-// Once the connection is established, register the schema and start the server
-mongoose.connection.once('open', () => {
-    console.log('Connected to MongoDB');
-    
-    // Routes
-    app.post('/register', async (req, res) => {
-        const { username, password, email } = req.body;
-
-        try {
-            const existingUser = await User.findOne({ username });
-            if (existingUser) {
-                return res.status(400).json({ error: 'Username already exists' });
-            }
-
-            // Generate a unique database name based on username
-            const dbName = `user_${username}`;
-
-            // Check if the database already exists
-            const dbExists = await mongoose.connection.db.admin().listDatabases();
-            if (dbExists.databases.some(db => db.name === dbName)) {
-                return res.status(400).json({ error: 'Database already exists for this user' });
-            }
-
-            // Create a new database
-            const newDb = await mongoose.connection.useDb(dbName);
-
-            // Create user model for the new database
-            const UserModel = newDb.model('User', userSchema);
-
-            // Create user document in the new database
-            const newUser = new UserModel({ username, password, email });
-            await newUser.save();
-
-            res.status(201).json({ message: 'User registered successfully' });
-        } catch (error) {
-            console.error('Error registering user:', error);
-            res.status(500).json({ error: 'Internal server error' });
-        }
-    });
-
-   // Routes
 // Routes
+app.post('/register', async (req, res) => {
+    const { username, password, email } = req.body;
+
+    try {
+        const existingUser = await User.findOne({ username });
+        if (existingUser) {
+            return res.status(400).json({ error: 'Username already exists' });
+        }
+
+        // Generate a unique database name based on username
+        const dbName = `user_${username}`;
+
+        // Check if the database already exists
+        const dbExists = await mongoose.connection.db.admin().listDatabases();
+        if (dbExists.databases.some(db => db.name === dbName)) {
+            return res.status(400).json({ error: 'Database already exists for this user' });
+        }
+
+        // Create a new database
+        const newDb = await mongoose.connection.useDb(dbName);
+
+        // Create user model for the new database
+        const UserModel = newDb.model('User', userSchema);
+
+        // Create user document in the new database
+        const newUser = new UserModel({ username, password, email });
+        await newUser.save();
+
+        res.status(201).json({ message: 'User registered successfully' });
+    } catch (error) {
+        console.error('Error registering user:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
@@ -115,13 +108,16 @@ app.post('/login', async (req, res) => {
         }
 
         // Passwords match, user is authenticated
-        res.status(200).json({ message: 'Login successful' });
+        res.status(200).json({ message: 'Login successful', username: user.username });
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });
 
+// Once the connection is established, register the schema and start the server
+mongoose.connection.once('open', () => {
+    console.log('Connected to MongoDB');
 
     // Start the server
     app.listen(PORT, () => {

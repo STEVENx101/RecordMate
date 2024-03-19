@@ -92,7 +92,7 @@ h2{
 
 #startBtn{
     position: absolute;
-    top: 10%;
+    top: 75%;
     left: 88%;
     width: 90px;
     height: 40px;
@@ -116,7 +116,7 @@ h2{
   
   #stopBtn{
       position: absolute;
-      top: 15%;
+      top: 80%;
       left: 88%;
       width: 90px;
       height: 40px;
@@ -140,6 +140,10 @@ h2{
 
     #RecordTitle{
         position: absolute;
-        top: 5%;
+        top: 70%;
         left: 85%;
+    }
+
+    #username{
+        color: white;
     }

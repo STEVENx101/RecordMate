@@ -19,8 +19,9 @@ function createWindow() {
         },
     });
     
-    loginWin.setMenu(null);
+  
     loginWin.loadFile("Loginpage.html");
+    loginWin.setMenu(null);
 
 }
 
@@ -34,7 +35,7 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
 });
 
-ipcMain.on('open-new-window', () => {
+ipcMain.on('open-new-window', (event, username) => {
     homePage = new BrowserWindow({
         width: 1920,
         height: 1080,
@@ -132,4 +133,5 @@ function stopPythonScript() {
         pythonProcess.kill();
     }
 }
+
 
