@@ -1,4 +1,4 @@
-const { ipcRenderer} = require('electron');
+const { ipcRenderer, dialog} = require('electron');
 
 document.addEventListener('DOMContentLoaded', () =>{
     
@@ -69,8 +69,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         alert(data.error); // Show error message
                         ipcRenderer.send('focus-fix');
 
-                        
-
                     });
                 }
             })
@@ -80,5 +78,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
-

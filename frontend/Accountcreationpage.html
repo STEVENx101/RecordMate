@@ -44,25 +44,13 @@
     </form>
 
     <script>
-        // Function to validate email format
-        function isValidEmail(email) {
-            // Regular expression for validating email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-    
         // Function to handle form submission
         function handleFormSubmission() {
             // Get the form data
             const email = document.getElementById('email').value;
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-    
-            // Check if email is in a valid format
-            if (!isValidEmail(email)) {
-                console.error('Invalid email format');
-                return; // Stop form submission
-            }
+
     
             // Create an object with the form data
             const formData = {
@@ -85,8 +73,11 @@
                     window.location.href = 'Loginpage.html';
                     
                 } else {
-                    // If registration fails, display an error message to the user
-                    console.error('Account creation failed');
+                    return response.json().then(data => {
+                        alert(data.error); // Show error message
+                        
+
+                    });
                 }
             })
             .catch(error => {
