@@ -67,6 +67,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Handle error response
                     return response.json().then(data => {
                         alert(data.error); // Show error message
+                        ipcRenderer.send('focus-fix');
+
+                        
+
                     });
                 }
             })
