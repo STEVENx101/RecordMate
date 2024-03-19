@@ -79,3 +79,12 @@ h1{
 }
 
 
+#aboutUs{
+    position: absolute;
+    top: 90%;
+    left: 45%;
+    color:gray;
+    cursor: pointer;
+    text-decoration: none;
+}
+
