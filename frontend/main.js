@@ -2,6 +2,8 @@ const { BrowserWindow, app, ipcMain, Menu, dialog } = require('electron');
 const path = require('path');
 const { spawn } = require('child_process');
 
+
+let mainWindow;
 let loginWin;
 let homePage;
 let recordWindow;
@@ -24,6 +26,8 @@ function createWindow() {
     loginWin.setMenu(null);
 
 }
+
+
 
 app.on('ready', createWindow);
 
@@ -135,3 +139,12 @@ function stopPythonScript() {
 }
 
 
+    
+
+ipcMain.on('focus-fix', () => {
+    let focusedWindow = BrowserWindow.getFocusedWindow();
+    if (focusedWindow) {
+      focusedWindow.hide();
+      focusedWindow.show();
+    }
+  });
