@@ -1,6 +1,7 @@
 const { BrowserWindow, app, ipcMain, Menu, dialog } = require('electron');
 const path = require('path');
 const { spawn } = require('child_process');
+const { PythonShell } = require('python-shell');
 
 
 let mainWindow;
@@ -74,11 +75,13 @@ ipcMain.on('open-record-window', () => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            preload: path.join(__dirname, 'preload.js'),
         },
     });
 
     recordWindow.loadFile('Recordpage.html');
     recordWindow.setMenu(null);
+
 
     // Start the Python script when the "Record" window is opened
     startPythonScript();
@@ -142,8 +145,6 @@ function stopPythonScript() {
 }
 
 
-    
-
 ipcMain.on('focus-fix', () => {
     let focusedWindow = BrowserWindow.getFocusedWindow();
     if (focusedWindow) {
@@ -151,3 +152,49 @@ ipcMain.on('focus-fix', () => {
       focusedWindow.show();
     }
   });
+
+
+
+// Add event listeners for start and stop messages
+ipcMain.on('start-python-script', () => {
+    // Check if Python script is not already running
+    if (!pythonProcess) {
+        // Start the Python script
+        startPythonScript();
+    }
+});
+
+ipcMain.on('stop-python-script', () => {
+    // Check if Python script is running
+    if (pythonProcess) {
+        // Stop the Python script
+        stopPythonScript();
+    }
+});
+
+function startPythonScript() {
+    // Replace 'your_python_script.py' with the correct filename of your Python script
+    pythonProcess = spawn('python', ['C:\\Users\\Dilusha fernando\\Desktop\\recordmate\\SDGP--SE--82\\backend\\applicationlaunches.py']);
+    
+
+    // Optional: Handle stdout and stderr if needed
+    pythonProcess.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    // Optional: Handle script exit event
+    pythonProcess.on('exit', (code) => {
+        console.log(`Python script exited with code ${code}`);
+        pythonProcess = null; // Reset pythonProcess variable
+    });
+}
+
+function stopPythonScript() {
+    // Kill the Python process
+    pythonProcess.kill();
+    pythonProcess = null; // Reset pythonProcess variable
+}

@@ -1,21 +1,27 @@
-const { ipcRenderer, dialog} = require('electron');
+const { ipcRenderer, dialog } = require('electron');
 
-document.addEventListener('DOMContentLoaded', () =>{
-    
+document.addEventListener('DOMContentLoaded', () => {
     const logoutbtn = document.getElementById('logoutBtn');
     const startBtn = document.getElementById('startBtn');
     const closeRecordBtn = document.getElementById('closeRecordBtn');
-    
+    const createCollectionBtn = document.getElementById('createCollectionBtn');
+    const stopBtn = document.getElementById('stopBtn');
 
-    if(logoutbtn){
+    if (logoutbtn) {
         logoutbtn.addEventListener('click', () => {
             ipcRenderer.send('open-logout-window');
         });
     }
 
-    if(startBtn){
+    if (startBtn) {
         startBtn.addEventListener('click', () => {
-            ipcRenderer.send('open-record-window');
+            ipcRenderer.send('start-python-script');
+        });
+    }
+
+    if (stopBtn) {
+        stopBtn.addEventListener('click', () => {
+            ipcRenderer.send('stop-python-script');
         });
     }
 
@@ -26,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () =>{
         });
     }
 
-    
     
 });
 
@@ -68,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     return response.json().then(data => {
                         alert(data.error); // Show error message
                         ipcRenderer.send('focus-fix');
-
                     });
                 }
             })
