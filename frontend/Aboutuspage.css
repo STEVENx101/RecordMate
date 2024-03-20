@@ -75,7 +75,7 @@ body{
 
 #dilushaImg{
     top: 35%;
-    left: 15%;
+    left: 13%;
     position: absolute;
     width: 200px;
     height: auto;
@@ -102,8 +102,10 @@ body{
     display: none;
     position: absolute;
     color: whitesmoke;
-    left: 60%;
+    left: 40%;
     top: 50%;
+    text-align: justify;
+    padding-right: 5%;
 }
 
 
@@ -260,8 +262,10 @@ body{
     display: none;
     position: absolute;
     color: whitesmoke;
-    left: 60%;
+    left: 42%;
     top: 50%;
+    padding-right: 5%;
+    text-align: justify;
 }
 
 .vihangi:hover ~ #vihangiImg, 
