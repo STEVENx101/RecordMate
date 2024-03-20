@@ -13,6 +13,7 @@ function createWindow() {
     loginWin = new BrowserWindow({
         width: 800,
         height: 600,
+        icon: "logo.jpg",
         maximizable: false,
         transparent: true,
         webPreferences: {
@@ -43,6 +44,7 @@ ipcMain.on('open-new-window', (event, username) => {
     homePage = new BrowserWindow({
         width: 1920,
         height: 1080,
+        icon: "logo.jpg",
         transparent: true,
         webPreferences: {
             nodeIntegration: true,
@@ -68,6 +70,7 @@ ipcMain.on('open-record-window', () => {
         width: 300,
         height: 200,
         frame: false,
+        icon: "logo.jpg",
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,

@@ -129,3 +129,22 @@ mongoose.connection.once('open', () => {
 mongoose.connection.on('error', err => {
     console.error('Error connecting to MongoDB:', err);
 });
+
+
+// Add a new route to fetch the logged-in user's username
+app.get('/user/:username', async (req, res) => {
+    const username = req.params.username;
+
+    try {
+        const user = await User.findOne({ username });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.status(200).json({ username: user.username });
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});

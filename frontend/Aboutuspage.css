@@ -67,14 +67,14 @@ body{
 
 #heading{
     top: 10%;
-    left: 45%;
+    left: 42%;
     position: absolute;
     color: whitesmoke;
     font-weight: bold;
 }
 
 #dilushaImg{
-    top: 30%;
+    top: 35%;
     left: 15%;
     position: absolute;
     width: 200px;
@@ -100,16 +100,22 @@ body{
 
 #dilushaContent{
     display: none;
+    position: absolute;
+    color: whitesmoke;
+    left: 60%;
+    top: 50%;
 }
 
 
-.dilusha:hover+ #dilushaImg{
+.dilusha:hover ~ #dilushaImg, 
+.dilusha:hover ~ #dilushaContent{
     display: block;
 }
 
 
+
 #thanugaImg{
-    top: 30%;
+    top: 35%;
     left: 15%;
     position: absolute;
     width: 200px;
@@ -120,7 +126,7 @@ body{
 .thanuga{
     position: absolute;
     top: 20%;
-    left: 30%;
+    left: 26%;
     padding: 10px 20px;
     font-size: 16px;
     border: 1px solid #333;
@@ -133,12 +139,22 @@ body{
     text-decoration: none;
 }
 
-.thanuga:hover+ #thanugaImg{
+#thanugaContent{
+    display: none;
+    position: absolute;
+    color: whitesmoke;
+    left: 60%;
+    top: 50%;
+}
+
+.thanuga:hover ~ #thanugaImg, 
+.thanuga:hover ~ #thanugaContent{
     display: block;
 }
 
+
 #janudaImg{
-    top: 30%;
+    top: 35%;
     left: 15%;
     position: absolute;
     width: 200px;
@@ -149,7 +165,7 @@ body{
 .januda{
     position: absolute;
     top: 20%;
-    left: 50%;
+    left: 44%;
     padding: 10px 20px;
     font-size: 16px;
     border: 1px solid #333;
@@ -162,12 +178,22 @@ body{
     text-decoration: none;
 }
 
-.januda:hover+ #janudaImg{
+#janudaContent{
+    display: none;
+    position: absolute;
+    color: whitesmoke;
+    left: 60%;
+    top: 50%;
+}
+
+.januda:hover ~ #janudaImg, 
+.januda:hover ~ #janudaContent{
     display: block;
 }
 
+
 #thilanImg{
-    top: 30%;
+    top: 35%;
     left: 15%;
     position: absolute;
     width: 200px;
@@ -191,12 +217,22 @@ body{
     text-decoration: none;
 }
 
-.thilan:hover+ #thilanImg{
+#thilanContent{
+    display: none;
+    position: absolute;
+    color: whitesmoke;
+    left: 60%;
+    top: 50%;
+}
+
+.thilan:hover ~ #thilanImg, 
+.thilan:hover ~ #thilanContent{
     display: block;
 }
 
+
 #vihangiImg{
-    top: 30%;
+    top: 35%;
     left: 15%;
     position: absolute;
     width: 200px;
@@ -207,7 +243,7 @@ body{
 .vihangi{
     position: absolute;
     top: 20%;
-    left: 80%;
+    left: 75%;
     padding: 10px 20px;
     font-size: 16px;
     border: 1px solid #333;
@@ -220,6 +256,15 @@ body{
     text-decoration: none;
 }
 
-.vihangi:hover+ #vihangiImg{
+#vihangiContent{
+    display: none;
+    position: absolute;
+    color: whitesmoke;
+    left: 60%;
+    top: 50%;
+}
+
+.vihangi:hover ~ #vihangiImg, 
+.vihangi:hover ~ #vihangiContent{
     display: block;
 }

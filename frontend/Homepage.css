@@ -43,8 +43,8 @@ h2{
 
 .search-button{
     color:whitesmoke;
-    width: 135px;
-    height: 50px;
+    width: 125px;
+    height: 40px;
     line-height: 20px;
     text-decoration: none;
     background:transparent;
@@ -57,7 +57,7 @@ h2{
 }
 
 .search-button:hover{
-    width: 150px;
+    width: 130px;
     border: 2px solid #01f8ec;
     background: transparent;
     color: #01f8ec;
