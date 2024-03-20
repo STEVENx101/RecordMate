@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
+const emailValidator = require("email-validator");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,6 +43,10 @@ userSchema.pre('save', async function(next) {
 // Routes
 app.post('/register', async (req, res) => {
     const { username, password, email } = req.body;
+
+    if (!emailValidator.validate(email)) {
+        return res.status(400).json({ error: 'Invalid email format' });
+    }
 
     try {
         const existingUser = await User.findOne({ username });
