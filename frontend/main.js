@@ -1,8 +1,7 @@
 const { BrowserWindow, app, ipcMain, Menu, dialog } = require('electron');
 const path = require('path');
 const { spawn } = require('child_process');
-const axios = require('axios');
-const mongoose = require('mongoose');
+
 
 let mainWindow;
 let loginWin;
@@ -81,7 +80,8 @@ ipcMain.on('open-record-window', () => {
     recordWindow.loadFile('Recordpage.html');
     recordWindow.setMenu(null);
 
-    
+    // Start the Python script when the "Record" window is opened
+    startPythonScript();
 });
 
 ipcMain.on('show-logout-confirmation', () => {
@@ -142,6 +142,8 @@ function stopPythonScript() {
 }
 
 
+    
+
 ipcMain.on('focus-fix', () => {
     let focusedWindow = BrowserWindow.getFocusedWindow();
     if (focusedWindow) {
@@ -149,9 +151,3 @@ ipcMain.on('focus-fix', () => {
       focusedWindow.show();
     }
   });
-
-
-
-
-
-  

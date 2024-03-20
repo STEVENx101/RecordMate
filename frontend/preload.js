@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     const logoutbtn = document.getElementById('logoutBtn');
     const startBtn = document.getElementById('startBtn');
     const closeRecordBtn = document.getElementById('closeRecordBtn');
-    const rec = document.getElementById('CreateBtn');
+    
 
     if(logoutbtn){
         logoutbtn.addEventListener('click', () => {
@@ -25,14 +25,6 @@ document.addEventListener('DOMContentLoaded', () =>{
             ipcRenderer.send('close-record-window');
         });
     }
-
-    if(rec){
-        rec.addEventListener('click', () => {
-            const captureName = document.getElementById('captureName').value; // Get the capture name from input field
-            ipcRenderer.send('create-collection', captureName); // Send the capture name to the main process
-        });      
-    }
-
 
     
     
@@ -86,4 +78,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-

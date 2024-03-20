@@ -75,7 +75,7 @@ body{
 
 #dilushaImg{
     top: 35%;
-    left: 13%;
+    left: 15%;
     position: absolute;
     width: 200px;
     height: auto;
@@ -102,10 +102,8 @@ body{
     display: none;
     position: absolute;
     color: whitesmoke;
-    left: 40%;
+    left: 60%;
     top: 50%;
-    text-align: justify;
-    padding-right: 5%;
 }
 
 
