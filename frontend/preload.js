@@ -5,9 +5,12 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const emailValidator = require("email-validator");
 const { Sequelize, DataTypes } = require('sequelize');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const folderPath = '..\\frontend'; // Specify your folder path here
 
 // Middleware
 app.use(cors());
@@ -80,10 +83,49 @@ app.post('/login', async (req, res) => {
   }
 });
 
+// Serve static files (like index.html)
+app.use(express.static(__dirname));
+
+// File server route for searching files
+app.get('/files', (req, res) => {
+    const searchTerm = req.query.q || '';
+    fs.readdir(folderPath, (err, files) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error reading folder.');
+            return;
+        }
+
+        const filteredFiles = files.filter(file => file.toLowerCase().includes(searchTerm.toLowerCase()));
+        const fileLinks = filteredFiles.map(file => {
+            return `<a href="Resultspage.html" >${file}</a>`;
+        }).join('<br>');
+
+        res.send(`<h2>Search results for "${searchTerm}":</h2>${fileLinks}`);
+    });
+});
+
+// File server route for serving individual files
+app.get('/file/:fileName', (req, res) => {
+    const fileName = req.params.fileName;
+    const filePath = path.join(folderPath, fileName);
+
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(404).send('File not found.');
+            return;
+        }
+        res.setHeader('Content-Type', 'text/html');
+        res.send(data);
+    });
+});
+
 // Sync models with the database and start the server
 sequelize.sync().then(() => {
   console.log('Connected to SQLite database');
 
+  // Start the Express server
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
@@ -130,9 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
-
-    
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -182,6 +221,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
-
-
