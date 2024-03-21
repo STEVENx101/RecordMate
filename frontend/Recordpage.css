@@ -16,7 +16,7 @@ body{
 }
 
 #startBtn{
-    top: 65%;
+    top: 45%;
     left: 35%;
     position: absolute;
     width: 90px;
@@ -50,3 +50,32 @@ body{
    
 }
 
+#stopBtn{
+    top: 70%;
+    left: 35%;
+    position: absolute;
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    background:transparent;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border: 2px solid #333;
+    border-radius: 20px; /* Adjust the border-radius to control the curvature */
+    transition: all .35s;
+}
+
+#stopBtn:hover{
+    width: 95px;
+    border: 2px solid #01f8ec;
+    background: transparent;
+    color: #01f8ec;
+}
+
+#collectionName{
+    position: absolute;
+    top: 5%;
+    left:10%;
+}
