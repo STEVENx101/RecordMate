@@ -15,7 +15,7 @@ body{
     backdrop-filter: blur(0px);
 }
 
-#CreateBtn{
+#startBtn{
     top: 65%;
     left: 35%;
     position: absolute;
@@ -32,7 +32,7 @@ body{
     transition: all .35s;
 }
 
-#CreateBtn:hover{
+#startBtn:hover{
     width: 95px;
     border: 2px solid #01f8ec;
     background: transparent;

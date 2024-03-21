@@ -83,8 +83,6 @@ ipcMain.on('open-record-window', () => {
     recordWindow.setMenu(null);
 
 
-    // Start the Python script when the "Record" window is opened
-    startPythonScript();
 });
 
 ipcMain.on('show-logout-confirmation', () => {
@@ -120,29 +118,10 @@ const optionbar = (homePage) => {
 ipcMain.on('close-record-window', () => {
     if (recordWindow) {
         recordWindow.close();
-        stopPythonScript();
     }
 });
 
-function startPythonScript() {
-    // Start the Python script to capture screenshots
-    pythonProcess = spawn('python', ['../backend/screenshot_capture.py']);
 
-    pythonProcess.stdout.on('data', (data) => {
-        console.log(`stdout: ${data}`);
-    });
-
-    pythonProcess.stderr.on('data', (data) => {
-        console.error(`stderr: ${data}`);
-    });
-}
-
-function stopPythonScript() {
-    // Stop the Python script
-    if (pythonProcess) {
-        pythonProcess.kill();
-    }
-}
 
 
 ipcMain.on('focus-fix', () => {
@@ -155,12 +134,11 @@ ipcMain.on('focus-fix', () => {
 
 
 
-// Add event listeners for start and stop messages
-ipcMain.on('start-python-script', () => {
+  ipcMain.on('start-python-script', (event, collectionName) => {
     // Check if Python script is not already running
     if (!pythonProcess) {
         // Start the Python script
-        startPythonScript();
+        startPythonScript(collectionName);
     }
 });
 
@@ -172,9 +150,9 @@ ipcMain.on('stop-python-script', () => {
     }
 });
 
-function startPythonScript() {
+function startPythonScript(collectionName) {
     // Replace 'your_python_script.py' with the correct filename of your Python script
-    pythonProcess = spawn('python', ['C:\\Users\\Dilusha fernando\\Desktop\\recordmate\\SDGP--SE--82\\backend\\applicationlaunches.py']);
+    pythonProcess = spawn('python', ['C:\\Users\\Dilusha fernando\\Desktop\\recordmate\\SDGP--SE--82\\backend\\applicationlaunches.py', collectionName]);
     
 
     // Optional: Handle stdout and stderr if needed
@@ -198,3 +176,5 @@ function stopPythonScript() {
     pythonProcess.kill();
     pythonProcess = null; // Reset pythonProcess variable
 }
+
+

@@ -24,16 +24,9 @@
 
     <button id="logoutBtn">✖ Logout</button>
 
-    <button id="startBtn">Start</button>
-    <button id="stopBtn">Stop</button>
-    
-    <script>
-        // Access the logged-in user's username using the preload script
-        window.electronAPI.getLoggedInUsername().then(username => {
-            // Update the DOM to display the logged-in user's username
-            document.getElementById('username').innerText = `Logged in as: ${username}`;
-        });
-    </script>
+    <button id="createBtn">Create</button>
+   
+
     
 </body>
 </html>

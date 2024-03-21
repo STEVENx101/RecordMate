@@ -67,10 +67,11 @@ body{
 
 #heading{
     top: 10%;
-    left: 42%;
+    left: 41%;
     position: absolute;
     color: whitesmoke;
     font-weight: bold;
+    font-size: large;
 }
 
 #dilushaImg{
@@ -118,7 +119,7 @@ body{
 
 #thanugaImg{
     top: 35%;
-    left: 15%;
+    left: 13%;
     position: absolute;
     width: 200px;
     height: auto;
@@ -145,8 +146,10 @@ body{
     display: none;
     position: absolute;
     color: whitesmoke;
-    left: 60%;
+    left: 40%;
     top: 50%;
+    text-align: justify;
+    padding-right: 5%;
 }
 
 .thanuga:hover ~ #thanugaImg, 
@@ -157,7 +160,7 @@ body{
 
 #janudaImg{
     top: 35%;
-    left: 15%;
+    left: 13%;
     position: absolute;
     width: 200px;
     height: auto;
@@ -184,8 +187,10 @@ body{
     display: none;
     position: absolute;
     color: whitesmoke;
-    left: 60%;
+    left: 40%;
     top: 50%;
+    text-align: justify;
+    padding-right: 5%;
 }
 
 .januda:hover ~ #janudaImg, 
@@ -196,7 +201,7 @@ body{
 
 #thilanImg{
     top: 35%;
-    left: 15%;
+    left: 13%;
     position: absolute;
     width: 200px;
     height: auto;
@@ -223,8 +228,10 @@ body{
     display: none;
     position: absolute;
     color: whitesmoke;
-    left: 60%;
+    left: 40%;
     top: 50%;
+    text-align: justify;
+    padding-right: 5%;
 }
 
 .thilan:hover ~ #thilanImg, 
@@ -235,7 +242,7 @@ body{
 
 #vihangiImg{
     top: 35%;
-    left: 15%;
+    left: 13%;
     position: absolute;
     width: 200px;
     height: auto;

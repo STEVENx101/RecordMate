@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutbtn = document.getElementById('logoutBtn');
     const startBtn = document.getElementById('startBtn');
     const closeRecordBtn = document.getElementById('closeRecordBtn');
-    const createCollectionBtn = document.getElementById('createCollectionBtn');
+    const createBtn = document.getElementById('createBtn');
     const stopBtn = document.getElementById('stopBtn');
 
     if (logoutbtn) {
@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (startBtn) {
         startBtn.addEventListener('click', () => {
-            ipcRenderer.send('start-python-script');
+            const collectionName = document.getElementById('collectionName').value;
+            ipcRenderer.send('start-python-script', collectionName);
         });
     }
 
@@ -31,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ipcRenderer.send('close-record-window');
         });
     }
+
+    if (createBtn) {
+        createBtn.addEventListener('click', () => {
+            ipcRenderer.send('open-record-window');
+        });
+    }
+
+    
 
     
 });
