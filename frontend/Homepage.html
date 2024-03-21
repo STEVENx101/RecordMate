@@ -9,18 +9,22 @@
     <script src="preload.js"></script>
 </head>
 <body>
-    <h1>User profile</h1>
+    
     <h2>Search Records</h2>
+
+    <h2 id="RecordTitle">Create a new record</h2>
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search files...">
-        <button onclick="searchFiles()">Search</button>
+        <button onclick="searchFiles()" class="search-button">Search</button>
     </div>
 
     <div id="fileList"></div>
 
     <button id="logoutBtn">✖ Logout</button>
     <button id="createBtn">Create</button>
+
+
 
     <script>
         function searchFiles() {

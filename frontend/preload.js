@@ -98,10 +98,10 @@ app.get('/files', (req, res) => {
 
         const filteredFiles = files.filter(file => file.toLowerCase().includes(searchTerm.toLowerCase()));
         const fileLinks = filteredFiles.map(file => {
-            return `<a href="Resultspage.html" >${file}</a>`;
+            return `<a href="Resultspage.html" class="return" >${file}</a>`;
         }).join('<br>');
 
-        res.send(`<h2>Search results for "${searchTerm}":</h2>${fileLinks}`);
+        res.send(` ${fileLinks}`);
     });
 });
 
@@ -221,3 +221,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
