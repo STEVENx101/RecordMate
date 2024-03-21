@@ -4,11 +4,15 @@ const { spawn } = require('child_process');
 const { PythonShell } = require('python-shell');
 
 
+
+
+
 let mainWindow;
 let loginWin;
 let homePage;
 let recordWindow;
 let pythonProcess;
+let serverProcess;
 
 function createWindow() {
     loginWin = new BrowserWindow({
@@ -27,8 +31,17 @@ function createWindow() {
     loginWin.loadFile("Loginpage.html");
     loginWin.setMenu(null);
 
+    
 }
 
+app.on('before-quit', () => {
+    // Check if server process is running
+    if (serverProcess) {
+        // Kill the server process
+        serverProcess.kill();
+        serverProcess = null; // Reset serverProcess variable
+    }
+});
 
 
 app.on('ready', createWindow);
@@ -152,7 +165,7 @@ ipcMain.on('stop-python-script', () => {
 
 function startPythonScript(collectionName) {
     // Replace 'your_python_script.py' with the correct filename of your Python script
-    pythonProcess = spawn('python', ['C:\\Users\\Dilusha fernando\\Desktop\\recordmate\\SDGP--SE--82\\backend\\applicationlaunches.py', collectionName]);
+    pythonProcess = spawn('python', ['C:\\Users\\Dilusha fernando\\Desktop\\recordmate\\SDGP--SE--82\\frontend\\applicationlaunches.py', collectionName]);
     
 
     // Optional: Handle stdout and stderr if needed
