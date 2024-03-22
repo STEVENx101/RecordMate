@@ -8,7 +8,7 @@ html, body {
 }
 
 body{
-    background-image: url('background.jpg');
+    background-color: aliceblue;
     background-size: cover; /* Adjust the size property to cover or contain as needed */
     background-repeat: no-repeat;
     background-position: center center;

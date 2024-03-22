@@ -169,6 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeRecordBtn = document.getElementById('closeRecordBtn');
     const createBtn = document.getElementById('createBtn');
     const stopBtn = document.getElementById('stopBtn');
+    
+
 
     if (logoutbtn) {
         logoutbtn.addEventListener('click', () => {
@@ -204,6 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ipcRenderer.send('open-record-window');
         });
     }
+
+    
 
 });
 
@@ -394,3 +398,5 @@ function view(fileName) {
     const collectionName = fileName.split('.')[0]; // Extract the collection name from the file name
     ipcRenderer.send('view-file', collectionName);
 }
+
+
