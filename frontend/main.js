@@ -14,6 +14,7 @@ let recordWindow;
 let pythonProcess;
 let serverProcess;
 
+
 function createWindow() {
     loginWin = new BrowserWindow({
         width: 800,
@@ -109,6 +110,18 @@ ipcMain.on('open-logout-window', () => {
     optionbar(homePage);
 });
 
+
+
+
+
+
+ipcMain.on('open-Saved-window', () => {
+    // Call the optionbar function to open the dialog
+    showStopRecordingMessage(recordWindow);
+});
+
+
+
 // Define the optionbar function
 const optionbar = (homePage) => {
     const options = {
@@ -129,6 +142,27 @@ const optionbar = (homePage) => {
     });
 };
 
+
+const showStopRecordingMessage = (Recordpage) => {
+    const options = {
+        type: 'info',
+        buttons: ['OK'],
+        defaultId: 0,
+        title: 'Recording Stopped',
+        message: 'Recording has been successfully saved.',
+    };
+
+    dialog.showMessageBox(Recordpage, options).then((response) => {
+        if (response.response === 0) {
+            console.log('User clicked OK');
+        }
+    });
+};
+
+
+
+
+
 ipcMain.on('close-record-window', () => {
     if (recordWindow) {
         recordWindow.close();
@@ -138,8 +172,9 @@ ipcMain.on('close-record-window', () => {
 
 
 
+
 ipcMain.on('focus-fix', () => {
-    let focusedWindow = BrowserWindow.getFocusedWindow();
+let focusedWindow = BrowserWindow.getFocusedWindow();   
     if (focusedWindow) {
       focusedWindow.hide();
       focusedWindow.show();
@@ -166,7 +201,7 @@ ipcMain.on('stop-python-script', () => {
 
 function startPythonScript(collectionName) {
     // Replace 'your_python_script.py' with the correct filename of your Python script
-    pythonProcess = spawn('python', ['C:\\Users\\Dilusha fernando\\Desktop\\recordmate\\SDGP--SE--82\\frontend\\applicationlaunches.py', collectionName]);
+    pythonProcess = spawn('python', ['D:\\NEW SDGP\\SDGP--SE--82\\frontend\\applicationlaunches.py', collectionName]);
     
 
     // Optional: Handle stdout and stderr if needed
