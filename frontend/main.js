@@ -161,13 +161,19 @@ const showStopRecordingMessage = (Recordpage) => {
 
 
 
-
-
 ipcMain.on('close-record-window', () => {
     if (recordWindow) {
         recordWindow.close();
     }
 });
+
+
+ipcMain.on('minimize-record-window', () => {
+    if (recordWindow) {
+        recordWindow.minimize();
+    }
+});
+
 
 
 

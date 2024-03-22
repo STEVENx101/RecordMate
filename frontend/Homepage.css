@@ -8,7 +8,7 @@ html, body {
 }
 
 body{
-    background-image: url('background.jpg');
+    background-image: url('accountcreation.jpg');
     background-size: cover; /* Adjust the size property to cover or contain as needed */
     background-repeat: no-repeat;
     background-position: center center;

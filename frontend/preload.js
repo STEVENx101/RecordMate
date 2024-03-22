@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startBtn.addEventListener('click', () => {
             const collectionName = document.getElementById('collectionName').value;
             ipcRenderer.send('start-python-script', collectionName);
+            ipcRenderer.send('minimize-record-window');
         });
     }
 
