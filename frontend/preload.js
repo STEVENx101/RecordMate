@@ -86,7 +86,7 @@ app.post('/login', async (req, res) => {
 // Serve static files (like index.html)
 app.use(express.static(__dirname));
 
-// File server route for searching files
+/// File server route for searching files
 app.get('/files', (req, res) => {
   const searchTerm = req.query.q || '';
   fs.readdir(folderPath, (err, files) => {
@@ -96,16 +96,24 @@ app.get('/files', (req, res) => {
           return;
       }
 
-        const filteredFiles = files.filter(file => file.toLowerCase().includes(searchTerm.toLowerCase()));
-        const fileLinks = filteredFiles.map(file => {
-            return `
-                <div>
-                    <a href="Resultspage.html" class="returnResult">${file}</a>
-                    <button onclick="deleteFile('${file}')">Delete</button>
-                </div>`;
-        }).join('<br>');
+      const filteredFiles = files.filter(file => {
+          // Check if the file name includes the search term and ends with '.db'
+          return file.toLowerCase().includes(searchTerm.toLowerCase()) && file.endsWith('.db');
+      });
 
-      res.send(`${fileLinks}`);
+      if (filteredFiles.length === 0) {
+          res.send('<p>No .db files found</p>');
+      } else {
+          const fileLinks = filteredFiles.map(file => {
+              return `
+                  <div>
+                      <a href="Resultspage.html" class="returnResult">${file}</a>
+                      <button onclick="deleteFile('${file}')">Delete</button>
+                  </div>`;
+          }).join('<br>');
+
+          res.send(`${fileLinks}`);
+      }
   });
 });
 
