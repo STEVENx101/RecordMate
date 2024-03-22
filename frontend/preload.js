@@ -88,21 +88,21 @@ app.use(express.static(__dirname));
 
 // File server route for searching files
 app.get('/files', (req, res) => {
-    const searchTerm = req.query.q || '';
-    fs.readdir(folderPath, (err, files) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Error reading folder.');
-            return;
-        }
+  const searchTerm = req.query.q || '';
+  fs.readdir(folderPath, (err, files) => {
+      if (err) {
+          console.error(err);
+          res.status(500).send('Error reading folder.');
+          return;
+      }
 
-        const filteredFiles = files.filter(file => file.toLowerCase().includes(searchTerm.toLowerCase()));
-        const fileLinks = filteredFiles.map(file => {
-            return `<a href="Resultspage.html" class="returnResult">${file}</a>`;
-        }).join('<br>');
+      const filteredFiles = files.filter(file => file.toLowerCase().includes(searchTerm.toLowerCase()));
+      const fileLinks = filteredFiles.map(file => {
+          return `<a href="Resultspage.html" class="returnResult" id="retrieveLink">${file}</a>`;
+      }).join('<br>');
 
-        res.send(`${fileLinks}`);
-    });
+      res.send(`${fileLinks}`);
+  });
 });
 
 // File server route for serving individual files
@@ -319,3 +319,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // Other event listeners and code from your original JavaScript file can be added here
 });
 
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Assuming you have a link element with id 'retrieveLink' in your HTML
+  const retrieveLink = document.getElementById('fileList');
+
+  // Add a click event listener to the link
+  retrieveLink.addEventListener('click', () => {
+      ipcRenderer.send('run-python-script');
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fileList = document.getElementById('fileList');
+  const searchParams = new URLSearchParams(window.location.search);
+  const collectionName = searchParams.get('collection');
+
+  // Check if collectionName is not null
+  if (collectionName) {
+      const links = document.querySelectorAll('.returnResult');
+      links.forEach(link => {
+          link.href += `?collection=${collectionName}`;
+      });
+  }
+});
