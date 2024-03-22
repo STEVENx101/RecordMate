@@ -156,6 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (stopBtn) {
         stopBtn.addEventListener('click', () => {
             ipcRenderer.send('stop-python-script');
+            ipcRenderer.send('open-Saved-window');
+            ipcRenderer.send('close-record-window');
         });
     }
 
@@ -247,3 +249,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("Document loaded"); // Check if JavaScript code is executed
+
+  
+  const createAccountBtn = document.getElementById('createAccountBtn');
+
+  if (createAccountBtn) {
+      createAccountBtn.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent default form submission behavior
+
+          console.log("Create account button clicked"); // Check if the create account button is clicked
+
+          // Get the values of email, username, and password
+          var email = document.getElementById('email').value;
+          var username = document.getElementById('username').value;
+          var password = document.getElementById('password').value;
+
+          // Create an object with email, username, and password
+          var formData = {
+              email: email,
+              username: username,
+              password: password
+          };
+
+          // Send a POST request to your backend with the registration data
+          fetch('http://localhost:3000/register', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+          })
+          .then(response => {
+              if (response.ok) {
+                  // Redirect or perform actions after successful registration
+                  window.location.href = 'Loginpage.html';
+                  
+              } else {
+                  // Handle error response
+                  return response.json().then(data => {
+                      alert(data.error); // Show error message
+                      ipcRenderer.send('focus-fix');
+                  });
+              }
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
+      });
+  }
+
+  // Other event listeners and code from your original JavaScript file can be added here
+});
