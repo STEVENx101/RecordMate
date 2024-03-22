@@ -207,7 +207,7 @@ ipcMain.on('stop-python-script', () => {
 
 function startPythonScript(collectionName) {
     // Replace 'your_python_script.py' with the correct filename of your Python script
-    pythonProcess = spawn('python', ['..\\frontend\\applicationlaunches.py', collectionName]);
+    pythonProcess = spawn('python', ['/Users/rohanapatterson/Documents/GitHub/SDGP--SE--82/frontend/applicationlaunches.py', collectionName]);
     
 
     // Optional: Handle stdout and stderr if needed

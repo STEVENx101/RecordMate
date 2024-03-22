@@ -10,7 +10,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const folderPath = '..//frontend'; // Specify your folder path here
+const folderPath = '/Users/rohanapatterson/Documents/GitHub/SDGP--SE--82/frontend'; // Specify your folder path here
 
 // Middleware
 app.use(cors());
@@ -96,10 +96,14 @@ app.get('/files', (req, res) => {
           return;
       }
 
-      const filteredFiles = files.filter(file => file.toLowerCase().includes(searchTerm.toLowerCase()));
-      const fileLinks = filteredFiles.map(file => {
-          return `<a href="Resultspage.html" class="returnResult" id="retrieveLink">${file}</a>`;
-      }).join('<br>');
+        const filteredFiles = files.filter(file => file.toLowerCase().includes(searchTerm.toLowerCase()));
+        const fileLinks = filteredFiles.map(file => {
+            return `
+                <div>
+                    <a href="Resultspage.html" class="returnResult">${file}</a>
+                    <button onclick="deleteFile('${file}')">Delete</button>
+                </div>`;
+        }).join('<br>');
 
       res.send(`${fileLinks}`);
   });
@@ -120,6 +124,23 @@ app.get('/file/:fileName', (req, res) => {
         res.send(data);
     });
 });
+
+// Route for deleting a file
+app.delete('/deleteFile', (req, res) => {
+  const fileName = req.query.fileName;
+  const filePath = path.join(folderPath, fileName);
+
+  fs.unlink(filePath, (err) => {
+      if (err) {
+          console.error('Error deleting file:', err);
+          res.status(500).json({ error: 'Error deleting file' });
+      } else {
+          console.log('File deleted successfully');
+          res.status(200).send('File deleted successfully');
+      }
+  });
+});
+
 
 // Sync models with the database and start the server
 sequelize.sync().then(() => {
@@ -257,7 +278,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
+function deleteFile(fileName) {
+  fetch(`http://localhost:3000/deleteFile?fileName=${fileName}`, {
+      method: 'DELETE'
+  })
+  .then(response => {
+      if (response.ok) {
+          // Reload the search results after deletion
+          searchFiles();
+      } else {
+          console.error('Failed to delete file:', response.statusText);
+      }
+  })
+  .catch(error => console.error('Error deleting file:', error));
+}
 
 
 
