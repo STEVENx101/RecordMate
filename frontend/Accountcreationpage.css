@@ -8,7 +8,7 @@ html, body {
 }
 
 body{
-    background-image: url('background.jpg');
+    background-image: url('accountcreation.jpg');
     background-size: cover; /* Adjust the size property to cover or contain as needed */
     background-repeat: no-repeat;
     background-position: center center;
@@ -53,7 +53,7 @@ body{
     text-align: center;
     color: #fff;
     text-transform: uppercase;
-    border: 2px solid #333;
+    border: 2px solid #f1efef;
     border-radius: 20px; /* Adjust the border-radius to control the curvature */
     transition: all .35s;
 }

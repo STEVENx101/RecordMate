@@ -2,88 +2,100 @@
 
 html, body {
     font-family: 'Roboto', sans-serif;
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    height: 100%; 
-}
-
-body{
-    background-image: url('background.jpg');
-    background-size: cover; /* Adjust the size property to cover or contain as needed */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('login.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    backdrop-filter: blur(0px);
 }
 
-h1{
-    font-size: 32;
-    position:absolute;
+h1 {
+    font-size: 32px;
+    color: whitesmoke;
+    position: absolute;
     top: 30%;
     left: 10%;
-    color: whitesmoke;
 }
+
 #Username {
     position: absolute;
-    top: 30%; 
-    left: 60%; 
-    color:whitesmoke;
+    top: 30%;
+    left: 55%;
+    color: whitesmoke;
 }
 
 #Password {
     position: absolute;
-    top: 35%; 
-    left: 60.3%; 
-    color:whitesmoke;
+    top: 40%;
+    left: 55.3%;
+    color: whitesmoke;
+}
+
+input[type="text"],
+input[type="password"] {
+    position: absolute;
+    top: -25%;
+    left: 115%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: whitesmoke;
 }
 
 .LoginButton {
     position: absolute;
-    top: 40%; 
-    left: 76%; 
+    top: 50%;
+    left: 76%;
     width: 90px;
     height: 30px;
     line-height: 20px;
-    text-decoration: none;
-    background:transparent;
     text-align: center;
     color: #fff;
     border: 2px solid #333;
-    border-radius: 20px; /* Adjust the border-radius to control the curvature */
+    border-radius: 20px;
+    background-color: transparent;
+    cursor: pointer;
     transition: all .35s;
 }
 
 .LoginButton:hover {
     width: 95px;
-    border: 2px solid #01f8ec;
-    background: transparent;
+    border-color: #01f8ec;
     color: #01f8ec;
-  }
-
+}
 
 #SignUpLink {
     position: absolute;
-    top: 47.8%;
-    left: 82%;
-    color:gray;
+    top: 59.9%;
+    left: 81%;
+    color: gray;
     cursor: pointer;
     text-decoration: none;
 }
 
-
-#SignupText {
-    position: absolute;
-    top: 45%; 
-    left: 60%; 
-    color:whitesmoke;
-   
+#SignUpLink:hover{
+    color: #01f8ec;
 }
 
+#SignupText{
+    position: absolute;
+    top: 57.2%;
+    left: 59%;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
 
-#aboutUs{
+#aboutUs {
     position: absolute;
     top: 90%;
     left: 45%;
-    color:gray;
+    color: gray;
     cursor: pointer;
     text-decoration: none;
 }
