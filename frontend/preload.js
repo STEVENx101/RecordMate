@@ -10,7 +10,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const folderPath = '..\\frontend'; // Specify your folder path here
+const folderPath = '..//frontend'; // Specify your folder path here
 
 // Middleware
 app.use(cors());
@@ -98,10 +98,10 @@ app.get('/files', (req, res) => {
 
         const filteredFiles = files.filter(file => file.toLowerCase().includes(searchTerm.toLowerCase()));
         const fileLinks = filteredFiles.map(file => {
-            return `<a href="Resultspage.html" class="return" >${file}</a>`;
+            return `<a href="Resultspage.html" class="returnResult">${file}</a>`;
         }).join('<br>');
 
-        res.send(` ${fileLinks}`);
+        res.send(`${fileLinks}`);
     });
 });
 
@@ -221,4 +221,29 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+// Add this function to your preload.js
+function searchFiles() {
+  var searchTerm = document.getElementById('searchInput').value.trim();
+  fetch(`http://localhost:3000/files?q=${searchTerm}`)
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('fileList').innerHTML = data;
+      })
+      .catch(error => console.error('Error fetching file list:', error));
+}
+
+// Add this code to the end of your preload.js to attach the event listener to the search button
+document.addEventListener('DOMContentLoaded', () => {
+  const searchBtn = document.getElementById('searchBtn');
+  if (searchBtn) {
+      searchBtn.addEventListener('click', searchFiles);
+  }
+});
+
+
+
+
+
+
+
 

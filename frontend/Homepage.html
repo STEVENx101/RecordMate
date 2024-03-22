@@ -16,7 +16,7 @@
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search files...">
-        <button onclick="searchFiles()" class="search-button">Search</button>
+        <button id="searchBtn" class="search-button">Search</button>
     </div>
 
     <div id="fileList"></div>
@@ -24,23 +24,6 @@
     <button id="logoutBtn">✖ Logout</button>
     <button id="createBtn">Create</button>
 
-
-
-    <script>
-        function searchFiles() {
-            var searchTerm = document.getElementById('searchInput').value.trim();
-            fetch('http://localhost:3000/files?q=' + searchTerm)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('fileList').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching file list:', error));
-        }
-    </script>
+    
 </body>
 </html>

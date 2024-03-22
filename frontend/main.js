@@ -63,6 +63,7 @@ ipcMain.on('open-new-window', (event, username) => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            
         },
     });
 
