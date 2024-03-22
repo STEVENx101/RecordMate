@@ -10,7 +10,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const folderPath = '/Users/rohanapatterson/Documents/GitHub/SDGP--SE--82/frontend'; // Specify your folder path here
+const folderPath = 'C:\Users\Dilusha fernando\Desktop\recordmate\SDGP--SE--82\frontend'; // Specify your folder path here
 
 // Middleware
 app.use(cors());
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", function() {
   // Assuming you have a link element with id 'retrieveLink' in your HTML
-  const retrieveLink = document.getElementById('fileList');
+  const retrieveLink = document.getElementById('List');
 
   // Add a click event listener to the link
   retrieveLink.addEventListener('click', () => {
@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const fileList = document.getElementById('fileList');
+  const fileList = document.getElementById('List');
   const searchParams = new URLSearchParams(window.location.search);
   const collectionName = searchParams.get('collection');
 
