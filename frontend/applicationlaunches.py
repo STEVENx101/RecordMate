@@ -6,6 +6,7 @@ from pynput import mouse
 import sys
 import queue
 import threading
+import io
 
 def create_table_if_not_exists(conn):
     cursor = conn.cursor()
@@ -47,7 +48,9 @@ def track_processes(collection_name):
     def on_click(x, y, button, pressed):
         if button == mouse.Button.middle and pressed:
             im = ImageGrab.grab()
-            img_bytes = im.tobytes()
+            img_byte_array = io.BytesIO()
+            im.save(img_byte_array, format='PNG')
+            img_bytes = img_byte_array.getvalue()
             log_string = "Screenshot captured"
             db_queue.put((log_string, img_bytes))
 

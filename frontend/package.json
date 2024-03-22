@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":  "electron .",
+    "start": "electron .",
     "dev": "nodemon --exec electron .",
     "build": "electron-packager ."
   },
@@ -25,9 +25,12 @@
     "email-validator": "^2.0.4",
     "express": "^4.19.1",
     "express-session": "^1.18.0",
+    "fs": "^0.0.1-security",
+    "image-js": "^0.35.5",
     "is-port-reachable": "^4.0.0",
     "mongoose": "^8.2.2",
     "python-shell": "^5.0.0",
+    "queue": "^7.0.0",
     "sequelize": "^6.37.1",
     "sqlite3": "^5.1.7"
   }

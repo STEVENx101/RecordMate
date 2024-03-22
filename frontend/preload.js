@@ -318,3 +318,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Other event listeners and code from your original JavaScript file can be added here
 });
+
