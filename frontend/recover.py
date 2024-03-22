@@ -1,3 +1,5 @@
+# In your Python script
+import sys
 import sqlite3
 from PIL import Image
 import os
@@ -22,8 +24,8 @@ def retrieve_screenshots(collection_name, save_path):
 
 if __name__ == "__main__":
     try:
-        collection_name = "mageeka"
-        save_path = r"C:\Users\Dilusha fernando\Desktop\recordmate\SDGP--SE--82\frontend"  # Using raw string literal
+        collection_name = sys.argv[1]
+        save_path = r"..\\frontend"  # Using raw string literal
         retrieve_screenshots(collection_name, save_path)
     except KeyboardInterrupt:
         print("Retrieval stopped by user.")

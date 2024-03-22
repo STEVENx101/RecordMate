@@ -10,7 +10,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const folderPath = 'C:\Users\Dilusha fernando\Desktop\recordmate\SDGP--SE--82\frontend'; // Specify your folder path here
+const folderPath = '..\\frontend'; // Specify your folder path here
 
 // Middleware
 app.use(cors());
@@ -109,6 +109,7 @@ app.get('/files', (req, res) => {
                   <div>
                       <a href="Resultspage.html" class="returnResult">${file}</a>
                       <button onclick="deleteFile('${file}')">Delete</button>
+                      <button onclick="view('${file}')">View</button>
                   </div>`;
           }).join('<br>');
 
@@ -388,3 +389,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
+
+function view(fileName) {
+    const collectionName = fileName.split('.')[0]; // Extract the collection name from the file name
+    ipcRenderer.send('view-file', collectionName);
+}

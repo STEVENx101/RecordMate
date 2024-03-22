@@ -207,7 +207,7 @@ ipcMain.on('stop-python-script', () => {
 
 function startPythonScript(collectionName) {
     // Replace 'your_python_script.py' with the correct filename of your Python script
-    pythonProcess = spawn('python', ['C://Users//Dilusha fernando//Desktop//recordmate//SDGP--SE--82//frontend//applicationlaunches.py', collectionName]);
+    pythonProcess = spawn('python', ['..//frontend//applicationlaunches.py', collectionName]);
     
 
     // Optional: Handle stdout and stderr if needed
@@ -247,5 +247,21 @@ ipcMain.on('run-python-script', () => {
 
     pythonProcess.on('close', (code) => {
         console.log(`Python script exited with code ${code}`);
+    });
+});
+
+ipcMain.on('view-file', (event, collectionName) => {
+    const pythonProcess = spawn('python', ['..\\frontend\\recover.py', collectionName]);
+
+    pythonProcess.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    pythonProcess.on('close', (code) => {
+        console.log(`Python process exited with code ${code}`);
     });
 });
