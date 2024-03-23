@@ -14,13 +14,27 @@ html, body {
     background-position: center center;
 }
 
-h1 {
-    font-size: 32px;
-    color: whitesmoke;
+
+.recordMate{
     position: absolute;
     top: 30%;
-    left: 10%;
+    left: 12%;
 }
+
+
+.recordMate span{
+    font-size: 40px;
+    color: whitesmoke;
+    display: inline-block;
+    animation: flip 3s infinite;
+    animation-delay: calc(.2s * var(--i))
+}
+
+@keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+  }
 
 #Username {
     position: absolute;
@@ -98,5 +112,9 @@ input[type="password"] {
     color: gray;
     cursor: pointer;
     text-decoration: none;
+}
+
+#SignUpLink:hover{
+    color: #01f8ec;
 }
 

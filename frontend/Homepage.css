@@ -8,7 +8,7 @@ html, body {
 }
 
 body{
-    background-image: url('accountcreation.jpg');
+    background-image: url('results.jpg');
     background-size: cover; /* Adjust the size property to cover or contain as needed */
     background-repeat: no-repeat;
     background-position: center center;
@@ -38,6 +38,7 @@ h2{
 
 .search-container input{
     width: 500px;
+    height: auto;
     
 }
 

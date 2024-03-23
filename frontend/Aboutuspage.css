@@ -8,7 +8,7 @@ html, body {
 }
 
 body{
-    background-image: url('background.jpg');
+    background-image: url('login.jpg');
     background-size: cover; /* Adjust the size property to cover or contain as needed */
     background-repeat: no-repeat;
     background-position: center center;
@@ -65,17 +65,19 @@ body{
     }
 }
 
+
+
 #heading{
-    top: 10%;
-    left: 41%;
+    top: 9%;
+    left: 35%;
     position: absolute;
     color: whitesmoke;
     font-weight: bold;
-    font-size: large;
+    font-size: 32px;
 }
 
 #dilushaImg{
-    top: 35%;
+    top: 33%;
     left: 13%;
     position: absolute;
     width: 200px;
@@ -89,7 +91,7 @@ body{
     left: 10%;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid #333;
+    border: 3px solid #333;
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
@@ -104,7 +106,7 @@ body{
     position: absolute;
     color: whitesmoke;
     left: 40%;
-    top: 50%;
+    top: 45%;
     text-align: justify;
     padding-right: 5%;
 }
@@ -129,10 +131,10 @@ body{
 .thanuga{
     position: absolute;
     top: 20%;
-    left: 26%;
+    left: 27%;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid #333;
+    border: 3px solid #333;
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
@@ -147,7 +149,7 @@ body{
     position: absolute;
     color: whitesmoke;
     left: 40%;
-    top: 50%;
+    top: 45%;
     text-align: justify;
     padding-right: 5%;
 }
@@ -173,7 +175,7 @@ body{
     left: 44%;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid #333;
+    border: 3px solid #333;
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
@@ -188,7 +190,7 @@ body{
     position: absolute;
     color: whitesmoke;
     left: 40%;
-    top: 50%;
+    top: 45%;
     text-align: justify;
     padding-right: 5%;
 }
@@ -214,7 +216,7 @@ body{
     left: 60%;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid #333;
+    border: 3px solid #333;
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
@@ -229,7 +231,7 @@ body{
     position: absolute;
     color: whitesmoke;
     left: 40%;
-    top: 50%;
+    top: 45%;
     text-align: justify;
     padding-right: 5%;
 }
@@ -255,7 +257,7 @@ body{
     left: 75%;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid #333;
+    border: 3px solid #333;
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
@@ -270,7 +272,7 @@ body{
     position: absolute;
     color: whitesmoke;
     left: 42%;
-    top: 50%;
+    top: 45%;
     padding-right: 5%;
     text-align: justify;
 }

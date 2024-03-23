@@ -8,7 +8,7 @@ html, body {
 }
 
 body{
-    background-color: aliceblue;
+    background-color: black;
     background-size: cover; /* Adjust the size property to cover or contain as needed */
     background-repeat: no-repeat;
     background-position: center center;
@@ -61,4 +61,16 @@ body{
         transform: rotate(45deg) translate(20px, 20px);
     }
 }
+
+p{
+    color: whitesmoke;
+}
+
+.stuff{
+    top: 10%;
+    position: absolute;
+    left: 30%;
+    justify-content: center;
+}
+
 

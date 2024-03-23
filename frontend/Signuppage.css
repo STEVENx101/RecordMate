@@ -36,7 +36,7 @@ h1{
     left: 37%;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid #333;
+    border: 3px solid #333;
     background-color: black;
     color: whitesmoke;
     cursor: pointer;
@@ -52,7 +52,7 @@ h1{
     left: 35.5%;
     padding: 10px 20px;
     font-size: 16px;
-    border: 1px solid #333;
+    border: 3px solid #333;
     background-color:black;
     color: whitesmoke;
     cursor: pointer;

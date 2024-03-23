@@ -18,7 +18,7 @@ def retrieve_screenshots(collection_name, save_path):
             screenshot_path = os.path.join(save_path, f"{id}.jpg")
             with open(screenshot_path, "wb") as f:
                 f.write(screenshot)
-            screenshots_html += f"<div><img src='{screenshot_path}' width='400'><p>ID: {id}, Log: {log}</p></div>"
+            screenshots_html += f"<div><img src='{screenshot_path}' width='800'><p>ID: {id}, Log: {log}</p></div>"
             print(f"Screenshot saved at: {screenshot_path}")
         else:
             screenshots_html += f"<div><p>ID: {id}, Log: {log}</p></div>"
@@ -32,7 +32,8 @@ def retrieve_screenshots(collection_name, save_path):
     <head>
         <title>RecordMate</title>
         <link rel="stylesheet" href="screenshots_logs.css">
-         <script src="Signuppage.js"></script>
+        <script src="Signuppage.js"></script>
+        
 
     </head>
     <body>
@@ -42,9 +43,12 @@ def retrieve_screenshots(collection_name, save_path):
             <span></span>
             <span></span>
         </div>
+    </div>
 
-    </div>  
+        <div class="stuff">
         {screenshots_html}
+        </div>
+
     </body>
     </html>
     """
@@ -58,7 +62,7 @@ def retrieve_screenshots(collection_name, save_path):
 if __name__ == "__main__":
     try:
         collection_name = sys.argv[1]
-        save_path = r"..\\frontend"  # Using raw string literal
+        save_path = r"..//frontend"  # Using raw string literal
         retrieve_screenshots(collection_name, save_path)
     except KeyboardInterrupt:
         print("Retrieval stopped by user.")
