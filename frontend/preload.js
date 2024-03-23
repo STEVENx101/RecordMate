@@ -10,7 +10,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const folderPath = '..//frontend'; // Specify your folder path here
+const folderPath = '..//RecordMate-win32-x64'; // Specify your folder path here
 
 // Middleware
 app.use(cors());

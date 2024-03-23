@@ -32,7 +32,7 @@ def retrieve_screenshots(collection_name, save_path):
     <head>
         <title>RecordMate</title>
         <link rel="stylesheet" href="..//RecordMate-win32-x64//resources//app//screenshots_logs.css">
-        <script src="..//RecordMate-win32-x64//resources//app//Signuppage.js"></script>
+       
         
 
     </head>
