@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 html, body {
     font-family: 'Roboto', sans-serif;
     margin: 0; /* Remove default margin */
@@ -12,7 +12,8 @@ body{
     background-size: cover; /* Adjust the size property to cover or contain as needed */
     background-repeat: no-repeat;
     background-position: center center;
-    backdrop-filter: blur(10px);
+    
+   
 }
 
 h1{
@@ -38,8 +39,9 @@ h2{
 
 .search-container input{
     width: 500px;
-    height: auto;
-    
+    height: 30px;
+    border-radius: 20px;
+    border: 3px solid #fff ;
 }
 
 .search-button{
@@ -52,7 +54,7 @@ h2{
     text-align: center;
     color: #fff;
     text-transform: uppercase;
-    border: 2px solid #333;
+    border: 2px solid #ffffff;
     border-radius: 20px; /* Adjust the border-radius to control the curvature */
     transition: all .35s;
 }
@@ -63,7 +65,6 @@ h2{
     background: transparent;
     color: #01f8ec;
 }
-
 
 
 #logoutBtn {
@@ -78,7 +79,7 @@ h2{
   text-align: center;
   color: #fff;
   text-transform: uppercase;
-  border: 2px solid #333;
+  border: 2px solid #ffffff;
   border-radius: 20px; /* Adjust the border-radius to control the curvature */
   transition: all .35s;
 }
@@ -93,8 +94,8 @@ h2{
 
 #createBtn{
     position: absolute;
-    top: 75%;
-    left: 88%;
+    top: 72%;
+    left: 83%;
     width: 90px;
     height: 40px;
     line-height: 40px;
@@ -103,23 +104,22 @@ h2{
     text-align: center;
     color: #fff;
     text-transform: uppercase;
-    border: 2px solid #333;
+    border: 2px solid #ffffff;
     border-radius: 20px; /* Adjust the border-radius to control the curvature */
     transition: all .35s;
   }
   
-  #createBtn:hover{
-      width: 95px;
-      border: 2px solid #01f8ec;
-      background: transparent;
-      color: #01f8ec;
-  }
+    #createBtn:hover{
+        width: 95px;
+        border: 2px solid #01f8ec;
+        background: transparent;
+        color: #01f8ec;
+    }
   
-
     #RecordTitle{
         position: absolute;
-        top: 70%;
-        left: 85%;
+        top: 65%;
+        left: 80%;
     }
 
     #username{
@@ -130,6 +130,8 @@ h2{
         position: absolute;
         top: 20%;
         left: 30%;
+        font-weight: bold;
+        font-size: 22px;
         
     }
 
@@ -138,4 +140,95 @@ h2{
         color: whitesmoke;
         text-decoration: none;
     }
+
+    p{
+        color: whitesmoke;
+    }
+    
+
+    .addedP1{
+        font-size: 22px;
+        font-family: 'Bebas Neue', cursive;
+        position: absolute;
+        text-align: center;
+        top: 20%;
+        left: 72%;
+        color: whitesmoke;
+        text-align: center;
+        padding-right: 3%;
+    }
+
+    .addedP2{
+        font-size: 22px;
+        font-family: 'Bebas Neue', cursive;
+        position: absolute;
+        text-align: center;
+        top: 42%;
+        left: 72%;
+        color: whitesmoke;
+        text-align: center;
+        padding-right: 3%;
+    }
+
+    span {
+        font-family: 'Bebas Neue';
+        color: whitesmoke;
+        text-align: center;
+        font-size: 2em;
+        position: absolute;
+        top: 34%;
+        left: 85%;
+        transform: translate(-50%,-50%);
+        background-image: linear-gradient(rgb(1, 39, 255), rgb(0, 204, 255));
+        background-size: 100% 10px;
+        background-repeat: no-repeat;
+        background-position: 100% 0%;
+         transition: background-size .7s, background-position .5s ease-in-out;
+      }
+      
+      span:hover {
+        background-size: 100% 100%;
+        background-position: 0% 100%;
+        transition: background-position .7s, background-size .5s ease-in-out;
+      }
+
+
+      .incoming button{
+        background-color: rgb(0, 0, 0);
+        color: white;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+
+
+    .userGuide{
+        position: absolute;
+        left: 3%;
+        right: 75%;
+        top: 18%;
+        border-right: 2px solid rgb(255, 255, 255);
+        padding-right: 10px;
+    }
+
+    .userGuide p{
+        text-align: justify;
+        font-size: 14px;
+    }
+
+    .userGuide h3{
+        color: whitesmoke;
+    }
+
+
+    .guideH{
+        position: absolute;
+        top: 8%;
+        left: 5%;
+        
+    }
+    
+    
+    
     

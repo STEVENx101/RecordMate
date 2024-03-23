@@ -8,14 +8,15 @@ html, body {
 }
 
 body{
-    background-image: url('background.jpg');
+    background-color: #000000;
     background-size: cover; /* Adjust the size property to cover or contain as needed */
     background-repeat: no-repeat;
     background-position: center center;
-    backdrop-filter: blur(0px);
+    backdrop-filter: blur(10px);
 }
 
 #startBtn{
+    font-weight: bold;
     top: 45%;
     left: 35%;
     position: absolute;
@@ -25,9 +26,9 @@ body{
     text-decoration: none;
     background:transparent;
     text-align: center;
-    color: #fff;
+    color: rgb(95, 94, 94);
     text-transform: uppercase;
-    border: 2px solid #333;
+    border: 2px solid rgb(95, 94, 94);
     border-radius: 20px; /* Adjust the border-radius to control the curvature */
     transition: all .35s;
 }
@@ -45,12 +46,17 @@ body{
     height: 40px;
     position: absolute;
     left: 86%;
-    color: red;
+    color: rgb(95, 94, 94);
     background: transparent;
-   
+    border: none;
+}
+
+.close-button:hover{
+    color: #ff0000;
 }
 
 #stopBtn{
+    font-weight: bold;
     top: 70%;
     left: 35%;
     position: absolute;
@@ -60,22 +66,29 @@ body{
     text-decoration: none;
     background:transparent;
     text-align: center;
-    color: #fff;
+    color:  rgb(95, 94, 94);;
     text-transform: uppercase;
-    border: 2px solid #333;
+    border: 2px solid rgb(95, 94, 94);;
     border-radius: 20px; /* Adjust the border-radius to control the curvature */
     transition: all .35s;
 }
 
 #stopBtn:hover{
     width: 95px;
-    border: 2px solid #01f8ec;
+    border: 2px solid #ff0202;
     background: transparent;
-    color: #01f8ec;
+    color: #f80101;
 }
 
 #collectionName{
     position: absolute;
-    top: 5%;
-    left:10%;
+    top: 20%;
+    left:9%;
+    width: 250px;
+    height: 30px;
+    border: 20px;
+}
+
+.inputBar{
+    border-radius: 20px;
 }

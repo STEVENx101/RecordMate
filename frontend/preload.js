@@ -102,13 +102,13 @@ app.get('/files', (req, res) => {
       });
 
       if (filteredFiles.length === 0) {
-          res.send('<p>No .db files found</p>');
+          res.send('<p>No captures found for the searched term. Try again!!</p>');
       } else {
           const fileLinks = filteredFiles.map(file => {
               return `
-                  <div>
-                      <a href="Resultspage.html" class="returnResult">${file}</a>
-                      <button onclick="deleteFile('${file}')">Delete</button>
+                  <div class="incoming">
+                      <p>${file}</p>
+                      <button onclick="deleteFile('${file}' )">Delete</button>
                       <button onclick="view('${file}')">View</button>
                   </div>`;
           }).join('<br>');
@@ -258,13 +258,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-// Add this function to your preload.js
+
+
 function searchFiles() {
     var searchTerm = document.getElementById('searchInput').value.trim();
   
     // Check if the search term is empty
     if (searchTerm === '') {
-      document.getElementById('fileList').innerHTML = '<p>Please enter a search term</p>';
+      document.getElementById('fileList').innerHTML = '<p>Please enter a search term!</p>';
       return;
     }
   
