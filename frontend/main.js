@@ -208,7 +208,7 @@ ipcMain.on('stop-python-script', () => {
 
 function startPythonScript(collectionName) {
     // Replace 'your_python_script.py' with the correct filename of your Python script
-    pythonProcess = spawn('python', ['C://Users//Dilusha fernando//Desktop//recordmate//SDGP--SE--82//frontend//applicationlaunches.py', collectionName]);
+    pythonProcess = spawn('python', ['..//RecordMate-win32-x64//resources//app//applicationlaunches.py', collectionName]);
     
 
     // Optional: Handle stdout and stderr if needed
@@ -236,7 +236,7 @@ function stopPythonScript() {
 
 ipcMain.on('run-python-script', () => {
     
-    pythonProcess = spawn('python', ['C://Users//Dilusha fernando//Desktop//recordmate//SDGP--SE--82//frontend//recover.py']);
+    pythonProcess = spawn('python', ['..//RecordMate-win32-x64//resources//app//recover.py']);
 
     pythonProcess.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
@@ -252,7 +252,7 @@ ipcMain.on('run-python-script', () => {
 });
 
 ipcMain.on('view-file', (event, collectionName) => {
-    const pythonProcess = spawn('python', ['C://Users//Dilusha fernando//Desktop//recordmate//SDGP--SE--82//frontend//recover.py', collectionName]);
+    const pythonProcess = spawn('python', ['..//RecordMate-win32-x64//resources//app//recover.py', collectionName]);
 
     pythonProcess.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
@@ -275,11 +275,12 @@ ipcMain.on('view-file', (event, collectionName) => {
                 contextIsolation: false,
                 preload: path.join(__dirname, 'preload.js'),
                 
+                
             },
         });
-    
+        
         resultsWindow.loadFile('C://Users//Dilusha fernando//Desktop//recordmate//SDGP--SE--82//frontend//RecordMate-win32-x64//screenshots_logs.html');
-        recordWindow.setMenu(null);
+       
         
         
     });
