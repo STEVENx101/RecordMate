@@ -31,8 +31,8 @@ def retrieve_screenshots(collection_name, save_path):
     <html>
     <head>
         <title>RecordMate</title>
-        <link rel="stylesheet" href="screenshots_logs.css">
-        <script src="Signuppage.js"></script>
+        <link rel="stylesheet" href="..//RecordMate-win32-x64//resources//app//screenshots_logs.css">
+        <script src="..//RecordMate-win32-x64//resources//app//Signuppage.js"></script>
         
 
     </head>
@@ -62,7 +62,7 @@ def retrieve_screenshots(collection_name, save_path):
 if __name__ == "__main__":
     try:
         collection_name = sys.argv[1]
-        save_path = r"..//frontend"  # Using raw string literal
+        save_path = r"..//RecordMate-win32-x64"  # Using raw string literal
         retrieve_screenshots(collection_name, save_path)
     except KeyboardInterrupt:
         print("Retrieval stopped by user.")
