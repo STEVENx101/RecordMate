@@ -66,3 +66,6 @@ if __name__ == "__main__":
         retrieve_screenshots(collection_name, save_path)
     except KeyboardInterrupt:
         print("Retrieval stopped by user.")
+
+
+        

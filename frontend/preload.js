@@ -401,7 +401,12 @@ document.addEventListener("DOMContentLoaded", function () {
 function view(fileName) {
     const collectionName = fileName.split('.')[0]; // Extract the collection name from the file name
     ipcRenderer.send('view-file', collectionName);
-    ipcRenderer.send('show-results');
+
+    // Delay the execution of show-results by 2 seconds (2000 milliseconds)
+    setTimeout(() => {
+        ipcRenderer.send('show-results');
+    }, 1000);
+   
     
 }
 
