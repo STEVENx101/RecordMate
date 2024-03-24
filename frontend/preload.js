@@ -10,8 +10,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const folderPath = '..//RecordMate-win32-x64'; // Specify your folder path here
-
+const folderPath = '..//RecordMate-win32-x64'; 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
@@ -39,6 +38,10 @@ User.beforeCreate(async (user) => {
 // Routes
 app.post('/register', async (req, res) => {
   const { username, password, email } = req.body;
+
+  if (!username || !password || !email) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
 
   if (!emailValidator.validate(email)) {
     return res.status(400).json({ error: 'Invalid email format' });
@@ -398,6 +401,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function view(fileName) {
     const collectionName = fileName.split('.')[0]; // Extract the collection name from the file name
     ipcRenderer.send('view-file', collectionName);
+    ipcRenderer.send('show-results');
+    
 }
+
 
 
