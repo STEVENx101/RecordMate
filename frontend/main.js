@@ -264,26 +264,22 @@ ipcMain.on('view-file', (event, collectionName) => {
 
     pythonProcess.on('close', (code) => {
         console.log(`Python process exited with code ${code}`);
-
-        
-        resultsWindow = new BrowserWindow({
-            width: 1280,
-            height: 720,
-            icon: "logo.jpg",
-            webPreferences: {
-                nodeIntegration: true,
-                contextIsolation: false,
-                preload: path.join(__dirname, 'preload.js'),
-                
-                
-            },
-        });
-        
-        resultsWindow.loadFile('C://Users//Dilusha fernando//Desktop//recordmate//SDGP--SE--82//frontend//RecordMate-win32-x64//screenshots_logs.html');
-       
-        
+         
         
     });
 });
 
-
+ipcMain.on('show-results', (event) => {
+    let resultsWindow = new BrowserWindow({
+        width: 1280,
+        height: 720,
+        icon: "logo.jpg",
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            preload: path.join(__dirname, 'preload.js'),
+        },
+    });
+    
+    resultsWindow.loadFile(path.join(__dirname, '..', '..', '..', 'RecordMate-win32-x64', 'screenshots_logs.html'));
+});
